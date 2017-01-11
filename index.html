@@ -8,6 +8,7 @@
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
@@ -278,6 +279,45 @@ body {
   left: 50%;
   margin-left: -18px;
 }    
+/* Social Icons */
+#social_side_links {
+	position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+  list-style: none;
+  z-index: 99;
+}     
+#social_side_links li {
+    list-style-type: none;
+    float: left;
+}
+ 
+#social_side_links li a i {
+    background: #205D7A;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 25px;
+    text-align: center;
+    margin-right: 10px;
+    padding-top: 15%;
+    transition: all 0.2s ease-in-out;
+}
+.fa-facebook {
+    background:#3b5998
+} 
+.fa-linkedin {
+    background:#007bb6
+}
+.fa-twitter {
+    background:#00aced
+}
+
+#social_side_links li a i:hover {
+    opacity: .7;
+}    
   </style>
   <script>
 // Docs at http://simpleweatherjs.com
@@ -326,5 +366,11 @@ $(document).ready(function() {
       <div class="home-button"></div>
     </div>
   </div>  
+  
+  <ul id="social_side_links">
+      <!--li><a href="http://facebook.com/"><i class="fa fa-facebook"></i></a></li-->
+      <li><a href="https://linkedin.com/in/maxhe"><i class="fa fa-linkedin"></i></a></li>
+      <li><a href="https://twitter.com/xhe"><i class="fa fa-twitter"></i></a></li>      
+  </ul>  
 </body>
 </html>
