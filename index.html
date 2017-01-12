@@ -9,7 +9,10 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.0/jquery.modal.min.js"></script>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.0/jquery.modal.min.css" rel="stylesheet">
+	
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
@@ -383,11 +386,17 @@ $(document).ready(function() {
   
   <ul id="social_side_links">
       <li><a target="_blank" href="https://www.snapchat.com/add/maxxhe"><i class="fa fa-snapchat-ghost"></i></a></li>
-      <li><a href="#" onClick="alert('Wechat ID: maxhexia')"><i class="fa fa-weixin"></i></a></li>
+      <li><a href="#wechat-modal" rel="modal:open"><i class="fa fa-weixin"></i></a></li>
       <li><a target="_blank" href="https://linkedin.com/in/maxhe"><i class="fa fa-linkedin"></i></a></li>
       <!--li><a href="https://twitter.com/xhe"><i class="fa fa-twitter"></i></a></li-->
       <li><a target="_blank" href="https://www.messenger.com/t/xmaxhe"><i class="fa fa-facebook"></i></a></li>
       <li><a target="_blank" href="https://www.instagram.com/maxxhe/"><i class="fa fa-instagram"></i></a></li>
   </ul>  
+	
+  <!-- Modal HTML embedded directly into document -->
+  <div id="wechat-modal" style="display:none;">
+     <p>Wechat ID: maxhexia </p> 
+     <p><img src="images/wechat_qr.JPG" alt="Wechat QR code"></p>
+  </div>	
 </body>
 </html>
