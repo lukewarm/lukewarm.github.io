@@ -348,6 +348,9 @@ $(document).ready(function() {
       $("#weather").html('<p>'+error+'</p>');
     }
   });
+  $("#caption-container").click(function() {
+    window.open("https://www.snapchat.com/add/maxxhe");;
+  });
 });
     
   </script>
@@ -366,10 +369,10 @@ $(document).ready(function() {
       <div class="volume up"></div>
       <div class="volume down"></div>
       <div class="screen">
-        <a href="https://www.snapchat.com/add/maxxhe"><img src="https://unsplash.it/230/390?random"></a>
+        <a target="_blank" href="https://www.snapchat.com/add/maxxhe"><img src="https://unsplash.it/230/390?random"></a>
         <span class="timer">9</span>
-        <div class="caption-container">
-          <h3 class="caption">Add me on <i class="fa fa-snapchat" aria-hidden="true"></i></h3>
+        <div class="caption-container" id="snapchat-cta">
+          <h3 class="caption">Add me on snapchat <i class="fa fa-snapchat-square" aria-hidden="true"></i></h3>
         </div>	
       </div>
       <div class="home-button"></div>
@@ -377,12 +380,12 @@ $(document).ready(function() {
   </div>  
   
   <ul id="social_side_links">
-      <li><a href="https://www.snapchat.com/add/maxxhe"><i class="fa fa-snapchat-ghost"></i></a></li>
-      <li><a a href="#" onClick="alert('Wechat ID: maxhexia')"><i class="fa fa-weixin"></i></a></li>
-      <li><a href="https://linkedin.com/in/maxhe"><i class="fa fa-linkedin"></i></a></li>
+      <li><a target="_blank" href="https://www.snapchat.com/add/maxxhe"><i class="fa fa-snapchat-ghost"></i></a></li>
+      <li><a href="#" onClick="alert('Wechat ID: maxhexia')"><i class="fa fa-weixin"></i></a></li>
+      <li><a target="_blank" href="https://linkedin.com/in/maxhe"><i class="fa fa-linkedin"></i></a></li>
       <!--li><a href="https://twitter.com/xhe"><i class="fa fa-twitter"></i></a></li-->
-      <li><a href="https://www.messenger.com/t/xmaxhe"><i class="fa fa-facebook"></i></a></li>
-      <li><a href="https://www.instagram.com/maxxhe/"><i class="fa fa-instagram"></i></a></li>
+      <li><a target="_blank" href="https://www.messenger.com/t/xmaxhe"><i class="fa fa-facebook"></i></a></li>
+      <li><a target="_blank" href="https://www.instagram.com/maxxhe/"><i class="fa fa-instagram"></i></a></li>
   </ul>  
 </body>
 </html>
