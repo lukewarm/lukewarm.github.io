@@ -7,9 +7,6 @@
   <title>maxhe.org</title>
 
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.0/jquery.modal.min.js"></script>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.0/jquery.modal.min.css" rel="stylesheet">
 	
@@ -29,41 +26,41 @@
       background: linear-gradient(to right,  #1e5799 0%,#fffc00 100%); 
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#fffc00',GradientType=1 ); 
     }
-/*
-  Docs at http://http://simpleweatherjs.com
-  Weather icon font from http://fonts.artill.de/collection/artill-weather-icons
-  DO NOT hotlink the assets/font included in this demo. If you wish to use the same font icon then download it to your local assets at the link above. If you use the links below odds are at some point they will be removed and your version will break.
-*/
-html {
-   width: 100%;
-   height: 100%;
-   /*background: #1192d3 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/austin-2.jpg) no-repeat bottom right;
-   background-size: cover;*/
-   /*background-image: url(images/swirl_pattern.png);
-   background-repeat: repeat; */
-}    
-    
-@font-face {
-    font-family: 'weather';
-    src: url('fonts/artill_clean_icons-webfont.eot');
-    src: url('fonts/artill_clean_icons-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/artill_clean_icons-webfont.woff') format('woff'),
-         url('fonts/artill_clean_icons-webfont.ttf') format('truetype'),
-         url('fonts/artill_clean_icons-webfont.svg#artill_clean_weather_iconsRg') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-body {
-  padding: 25px 0;
-  font: 13px 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;  
-}
-.loading {
-  margin: 65px 0 0;
-}
-#weather {
-  width: 350px;
-  margin: 0px auto;
-  text-align: center;
+	/*
+		Docs at http://http://simpleweatherjs.com
+		Weather icon font from http://fonts.artill.de/collection/artill-weather-icons
+		DO NOT hotlink the assets/font included in this demo. If you wish to use the same font icon then download it to your local assets at the link above. If you use the links below odds are at some point they will be removed and your version will break.
+	*/
+	html {
+		 width: 100%;
+		 height: 100%;
+		 /*background: #1192d3 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/austin-2.jpg) no-repeat bottom right;
+		 background-size: cover;*/
+		 /*background-image: url(images/swirl_pattern.png);
+		 background-repeat: repeat; */
+	}    
+
+	@font-face {
+			font-family: 'weather';
+			src: url('fonts/artill_clean_icons-webfont.eot');
+			src: url('fonts/artill_clean_icons-webfont.eot?#iefix') format('embedded-opentype'),
+					 url('fonts/artill_clean_icons-webfont.woff') format('woff'),
+					 url('fonts/artill_clean_icons-webfont.ttf') format('truetype'),
+					 url('fonts/artill_clean_icons-webfont.svg#artill_clean_weather_iconsRg') format('svg');
+			font-weight: normal;
+			font-style: normal;
+	}
+	body {
+		padding: 25px 0;
+		font: 13px 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;  
+	}
+	.loading {
+		margin: 65px 0 0;
+	}
+	#weather {
+		width: 350px;
+		margin: 0px auto;
+		text-align: center;
   text-transform: uppercase;
 }
 #weather h1 {
@@ -268,8 +265,8 @@ body {
   list-style: none;
   z-index: 99;
 }
-#social_side_links ul {
-	margin: 10px;
+ul#social_side_links {
+  margin: 10px;
 }	
 #social_side_links li {
     list-style-type: none;
@@ -313,32 +310,6 @@ body {
     max-width: 100%;
 }
   </style>
-  <script>
-// Docs at http://simpleweatherjs.com
-$(document).ready(function() {
-  $.simpleWeather({
-    woeid: '2479714', //2357536
-    location: '',
-    unit: 'c',
-    success: function(weather) {
-      html = '<h1 class="icon-'+weather.code+'"></h1>';
-      html += '<h2>'+weather.temp+'&deg;</h2>';
-      //html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
-      //html += '<li class="currently">'+weather.currently+'</li></ul>';
-      //html += '<li>'+weather.tempAlt+'&deg;C</li></ul>';
-  
-      $("#weather").html(html);
-    },
-    error: function(error) {
-      $("#weather").html('<p>'+error+'</p>');
-    }
-  });
-  $("#snapchat-cta").click(function() {
-    window.open("https://www.snapchat.com/add/maxxhe");
-  });
-});
-    
-  </script>
 </head>
 
 <body>  
@@ -378,5 +349,35 @@ $(document).ready(function() {
      <p>Wechat ID: maxhexia </p> 
      <p><img src="images/wechat_qr.JPG" alt="Wechat QR code"></p>
   </div>	
+	
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.0/jquery.modal.min.js"></script>
+  <script>
+	// Docs at http://simpleweatherjs.com
+	$(document).ready(function() {
+		$.simpleWeather({
+			woeid: '2479714', //2357536
+			location: '',
+			unit: 'c',
+			success: function(weather) {
+				html = '<h1 class="icon-'+weather.code+'"></h1>';
+				html += '<h2>'+weather.temp+'&deg;</h2>';
+				//html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
+				//html += '<li class="currently">'+weather.currently+'</li></ul>';
+				//html += '<li>'+weather.tempAlt+'&deg;C</li></ul>';
+
+				$("#weather").html(html);
+			},
+			error: function(error) {
+				$("#weather").html('<p>'+error+'</p>');
+			}
+		});
+		$("#snapchat-cta").click(function() {
+			window.open("https://www.snapchat.com/add/maxxhe");
+		});
+	});    
+  </script>
+	
 </body>
 </html>
