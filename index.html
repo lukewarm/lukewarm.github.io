@@ -7,6 +7,9 @@
   <title>maxhe.org</title>
 
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.0/jquery.modal.min.js"></script>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.0/jquery.modal.min.css" rel="stylesheet">
 	
@@ -28,12 +31,9 @@
     }
 /*
   Docs at http://http://simpleweatherjs.com
-
   Weather icon font from http://fonts.artill.de/collection/artill-weather-icons
-
   DO NOT hotlink the assets/font included in this demo. If you wish to use the same font icon then download it to your local assets at the link above. If you use the links below odds are at some point they will be removed and your version will break.
 */
-
 html {
    width: 100%;
    height: 100%;
@@ -53,23 +53,19 @@ html {
     font-weight: normal;
     font-style: normal;
 }
-
 body {
   padding: 25px 0;
   font: 13px 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;  
 }
-
 .loading {
   margin: 65px 0 0;
 }
-
 #weather {
   width: 350px;
   margin: 0px auto;
   text-align: center;
   text-transform: uppercase;
 }
-
 #weather h1 {
   margin: 0;
   color: #fff;
@@ -78,7 +74,6 @@ body {
   font-weight: normal;
   line-height: 1.0;
 }
-
 #weather h1.icon-0:before { content: ":"; }
 #weather h1.icon-1:before { content: "p"; }
 #weather h1.icon-2:before { content: "S"; }
@@ -127,7 +122,6 @@ body {
 #weather h1.icon-45:before { content: "S"; }
 #weather h1.icon-46:before { content: "U"; }
 #weather h1.icon-47:before { content: "S"; }
-
 #weather h2 {
   margin: -50px 0 8px;
   color: #fff;
@@ -136,12 +130,10 @@ body {
   text-align: center;
   text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
 }
-
 #weather ul {
   margin: 0;
   padding: 0;
 }
-
 #weather li {
   background: #fff;
   background: rgba(255,255,255,0.90);
@@ -150,7 +142,6 @@ body {
   display: inline-block;
   border-radius: 5px;
 }
-
 #weather .updated {
   opacity: 0.45;
 }
@@ -162,7 +153,6 @@ body {
   margin: 50px auto 100px auto;
   font-family: 'Open Sans', sans-serif;
 }
-
 .phone{
   position: relative;
   background: #1e1e1e;
@@ -171,7 +161,6 @@ body {
   border-radius: 25px;
   margin: 0 auto;
 }
-
 .camera{
   position: absolute;
   background: #7A7A7A;
@@ -181,7 +170,6 @@ body {
   top: 22px;
   left: 85px;
 }
-
 .speaker{
   position: absolute;
   background: #7A7A7A;
@@ -191,7 +179,6 @@ body {
   top: 22px;
   left: 105px;
 }
-
 .sleep-button{
   position: absolute;
   background: #1e1e1e;
@@ -202,7 +189,6 @@ body {
   top: 105px;
   left: 250px;
 }
-
 .silent-switch{
   position: absolute;
   background: #1e1e1e;
@@ -213,7 +199,6 @@ body {
   top: 60px;
   left: -3px;
 }
-
 .volume{
   position: absolute;
   background: #1e1e1e;
@@ -223,15 +208,12 @@ body {
   border-bottom-left-radius: 3px 3px;
   left: -3px;
 }
-
 .up{
   top: 105px;
 }
-
 .down{
   top: 145px;
 }
-
 .screen{
   position: absolute;
   overflow: hidden;
@@ -241,7 +223,6 @@ body {
   top: 50px;
   left: 10px; 
 }
-
 .timer {
   position: absolute;
   background: rgba(0, 0, 0, 0.5);
@@ -255,7 +236,6 @@ body {
   color: #fff;
   font-size: 14px;
 }
-
 .caption-container{
   position: absolute;
   width: 100%;
@@ -264,13 +244,11 @@ body {
   color: #fff;
   text-align: center;
 }
-
 .caption{
   font-size: 16px;
   font-weight: 300;
   margin: 8px;
 }
-
 .home-button{
   position: absolute;
   border: 1px solid #7A7A7A;
@@ -282,10 +260,9 @@ body {
   margin-left: -18px;
 }    
 /* Social Icons */
-/*
 #social_side_links {
 	position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   padding: 0;
   list-style: none;
@@ -293,7 +270,7 @@ body {
 }     
 #social_side_links li {
     list-style-type: none;
-    float: left;
+    /*float: left;*/
 }
  
 #social_side_links li a i {
@@ -303,8 +280,8 @@ body {
     border-radius: 40px;
     font-size: 50px;
     text-align: center;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding-top: 15px;
     transition: all 0.2s ease-in-out;
 }
@@ -326,137 +303,13 @@ body {
 .fa-weixin {
     background:#7bb32e
 }	   
-
 #social_side_links li a i:hover {
     opacity: .7;
 }
-*/
-.social {
-  position: fixed;
-  top: 20px;
-}
-.social ul {
-  padding: 0px;
-  -webkit-transform: translate(-270px, 0);
-  -moz-transform: translate(-270px, 0);
-  -ms-transform: translate(-270px, 0);
-  -o-transform: translate(-270px, 0);
-  transform: translate(-270px, 0);
-}
-.social ul li {
-  display: block;
-  margin: 5px;
-  background: rgba(0, 0, 0, 0.36);
-  width: 300px;
-  text-align: right;
-  padding: 10px;
-  -webkit-border-radius: 0 30px 30px 0;
-  -moz-border-radius: 0 30px 30px 0;
-  border-radius: 0 30px 30px 0;
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
-  -ms-transition: all 1s;
-  -o-transition: all 1s;
-  transition: all 1s;
-}
-.social ul li:hover {
-  -webkit-transform: translate(110px, 0);
-  -moz-transform: translate(110px, 0);
-  -ms-transform: translate(110px, 0);
-  -o-transform: translate(110px, 0);
-  transform: translate(110px, 0);
-  background: rgba(255, 255, 255, 0.4);
-}
-.social ul li:hover a {
-  color: #000;
-}
-.social ul li:hover i {
-  color: #fff;
-  background: rgba(0, 0, 0, 0.36);
-  -webkit-transform: rotate(360deg);
-  -moz-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
-  -o-transform: rotate(360deg);
-  transform: rotate(360deg);
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
-  -ms-transition: all 1s;
-  -o-transition: all 1s;
-  transition: all 1s;
-}
-.social ul li i {
-  margin-left: 10px;
-  color: #000;
-  background: #fff;
-  padding: 10px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  font-size: 20px;
-  background: #ffffff;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-}
-	  
 #wechat-modal img {
     max-width: 100%;
 }
   </style>
-
-</head>
-
-<body>  
-  <!-- Docs at http://http://simpleweatherjs.com -->
-  <div id="weather"></div>
-  <!-- https://codepen.io/DaBhai13/pen/BypdzB -->
-  <div class="container">
-    <div class="phone">
-      <div class="camera"></div>
-      <div class="speaker"></div>
-      <div class="sleep-button"></div>
-      <div class="silent-switch"></div>
-      <div class="volume up"></div>
-      <div class="volume down"></div>
-      <div class="screen">
-        <a target="_blank" href="https://www.snapchat.com/add/maxxhe"><img src="https://unsplash.it/230/390?random"></a>
-        <span class="timer">9</span>
-        <div class="caption-container">
-          <h3 id="snapchat-cta" class="caption">Add me on snapchat <i class="fa fa-snapchat-square" aria-hidden="true"></i></h3>
-        </div>	
-      </div>
-      <div class="home-button"></div>
-    </div>
-  </div>  
-  
-  <!--ul id="social_side_links">
-  </ul-->  
-	
-<nav class="social">
-  <ul>
-      <li><a target="_blank" href="https://www.snapchat.com/add/maxxhe"><i class="fa fa-snapchat-ghost"></i></a></li>
-      <li><a href="#wechat-modal" rel="modal:open"><i class="fa fa-weixin"></i></a></li>
-      <li><a target="_blank" href="https://linkedin.com/in/maxhe"><i class="fa fa-linkedin"></i></a></li>
-      <!--li><a href="https://twitter.com/xhe"><i class="fa fa-twitter"></i></a></li-->
-      <li><a target="_blank" href="https://www.messenger.com/t/xmaxhe"><i class="fa fa-facebook"></i></a></li>
-      <li><a target="_blank" href="https://www.instagram.com/maxxhe/"><i class="fa fa-instagram"></i></a></li>
-  </ul>
-</nav>
-	
-  <!-- Modal HTML embedded directly into document -->
-  <div id="wechat-modal" style="display:none;">
-     <p>Wechat ID: maxhexia </p> 
-     <p><img src="images/wechat_qr.JPG" alt="Wechat QR code"></p>
-  </div>	
-
-  <!-- scripts -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.0/jquery.modal.min.js"></script>	
   <script>
 // Docs at http://simpleweatherjs.com
 $(document).ready(function() {
@@ -482,6 +335,45 @@ $(document).ready(function() {
   });
 });
     
-  </script>	
+  </script>
+</head>
+
+<body>  
+  <!-- Docs at http://http://simpleweatherjs.com -->
+  <div id="weather"></div>
+  <!-- https://codepen.io/DaBhai13/pen/BypdzB -->
+  <div class="container">
+    <div class="phone">
+      <div class="camera"></div>
+      <div class="speaker"></div>
+      <div class="sleep-button"></div>
+      <div class="silent-switch"></div>
+      <div class="volume up"></div>
+      <div class="volume down"></div>
+      <div class="screen">
+        <a target="_blank" href="https://www.snapchat.com/add/maxxhe"><img src="https://unsplash.it/230/390?random"></a>
+        <span class="timer">9</span>
+        <div class="caption-container">
+          <h3 id="snapchat-cta" class="caption">Add me on snapchat <i class="fa fa-snapchat-square" aria-hidden="true"></i></h3>
+        </div>	
+      </div>
+      <div class="home-button"></div>
+    </div>
+  </div>  
+  
+  <ul id="social_side_links">
+      <li><a target="_blank" href="https://www.snapchat.com/add/maxxhe"><i class="fa fa-snapchat-ghost"></i></a></li>
+      <li><a href="#wechat-modal" rel="modal:open"><i class="fa fa-weixin"></i></a></li>
+      <li><a target="_blank" href="https://linkedin.com/in/maxhe"><i class="fa fa-linkedin"></i></a></li>
+      <!--li><a href="https://twitter.com/xhe"><i class="fa fa-twitter"></i></a></li-->
+      <li><a target="_blank" href="https://www.messenger.com/t/xmaxhe"><i class="fa fa-facebook"></i></a></li>
+      <li><a target="_blank" href="https://www.instagram.com/maxxhe/"><i class="fa fa-instagram"></i></a></li>
+  </ul>  
+	
+  <!-- Modal HTML embedded directly into document -->
+  <div id="wechat-modal" style="display:none;">
+     <p>Wechat ID: maxhexia </p> 
+     <p><img src="images/wechat_qr.JPG" alt="Wechat QR code"></p>
+  </div>	
 </body>
 </html>
