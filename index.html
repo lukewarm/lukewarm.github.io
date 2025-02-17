@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- SEO Meta Tags -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Max He | Data Scientist & Programmer</title>
   <meta name="description" content="Find the contact information of Max He here. Which Max He? The one that went to Peking University, University of North Carolina at Chapel Hill, worked at DCRI, Facebook (Meta), Snap (Snapchat), and currently works on Data Science at Google Search">
@@ -32,6 +31,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
   <!-- AOS Animation CSS -->
   <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+  
   <style>
     :root {
       --google-blue: #4285F4;
@@ -78,23 +78,24 @@
       max-width: 960px;
       margin: 0 auto;
       padding: 2rem;
-      text-align: center;
     }
-    /* Hero Section */
+    /* Hero Section (SERP header style) */
     .hero {
-      padding: 80px 0 40px;
-      text-align: center;
+      padding: 40px 0 20px;
+      text-align: left;
+      border-bottom: 1px solid #d7ccc8;
+      margin-bottom: 20px;
     }
     .hero h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 4rem;
-      margin-bottom: 20px;
+      font-size: 3.5rem;
+      margin-bottom: 10px;
       background: linear-gradient(45deg, var(--google-blue), var(--google-red));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: var(--subtext);
     }
     /* Intro Section */
@@ -102,43 +103,36 @@
       margin: 30px 0;
       font-size: 1.1rem;
       color: var(--subtext);
+      text-align: left;
     }
-    /* Social Links Section */
-    .social-links .card {
-      background: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(66, 133, 244, 0.6);
-      border-radius: 15px;
-      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      padding: 1.5rem;
-      margin-bottom: 20px;
+    /* Search Results Section */
+    .search-results {
+      text-align: left;
     }
-    .social-links .card:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 243, 224, 0.8);
-      border-color: var(--google-red);
+    .result-item {
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #ccc;
     }
-    .social-links .card i {
-      font-size: 3rem;
+    .result-item:last-child {
+      border-bottom: none;
+    }
+    .result-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
       color: var(--google-blue);
-      transition: color 0.3s ease;
     }
-    .social-links .card:hover i {
-      color: var(--google-red);
+    .result-title:hover {
+      text-decoration: underline;
     }
-    .social-links .card-title {
-      margin-top: 10px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: var(--text-dark);
+    .result-url {
+      font-size: 0.9rem;
+      color: #006621;
+      margin-bottom: 5px;
     }
-    /* 2-column grid for social links */
-    .social-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 40px;
+    .result-snippet {
+      font-size: 1rem;
+      color: #545454;
     }
     /* Footer */
     footer {
@@ -147,21 +141,28 @@
       font-size: 0.9rem;
       color: #8d6e63;
       margin-top: 40px;
+      text-align: center;
     }
     /* Responsive adjustments */
     @media (max-width: 600px) {
       .hero h1 {
         font-size: 2.8rem;
       }
+      .result-title {
+        font-size: 1.5rem;
+      }
+      .result-snippet, .result-url, .hero p, .intro {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Animated particles background -->
+  <!-- tsParticles Animated Background -->
   <div id="tsparticles"></div>
   
   <div class="container">
-    <!-- Hero Section -->
+    <!-- Hero Section (SERP header style) -->
     <section class="hero" data-aos="fade-up">
       <h1>Max He's Digital Directory</h1>
       <p></p>
@@ -169,71 +170,63 @@
     
     <!-- Introduction Section -->
     <section class="intro" data-aos="fade-up" data-aos-delay="200">
-      <p>Hi there!</p>
+      <p>Hello visitor! Here you'll find a list of links to my online profiles.</p>
     </section>
     
-    <!-- Social Links Section (2 per row) -->
-    <section class="social-links" data-aos="fade-up" data-aos-delay="400">
-      <div class="social-grid">
-        <!-- LinkedIn -->
-        <div class="card">
-          <a href="https://linkedin.com/in/maxhe" target="_blank">
-            <i class="fab fa-linkedin"></i>
-            <div class="card-body">
-              <h5 class="card-title">LinkedIn</h5>
-            </div>
-          </a>
-        </div>
-        <!-- Snapchat -->
-        <div class="card">
-          <a href="https://snapchat.com/add/maxxhe" target="_blank">
-            <i class="fab fa-snapchat"></i>
-            <div class="card-body">
-              <h5 class="card-title">Snapchat</h5>
-            </div>
-          </a>
-        </div>
-        <!-- Instagram -->
-        <div class="card">
-          <a href="https://instagram.com/maxxhe" target="_blank">
-            <i class="fab fa-instagram"></i>
-            <div class="card-body">
-              <h5 class="card-title">Instagram</h5>
-            </div>
-          </a>
-        </div>
-        <!-- WeChat -->
-        <div class="card">
-          <a href="images/wechat_qr.JPG" target="_blank">
-            <i class="fab fa-weixin"></i>
-            <div class="card-body">
-              <h5 class="card-title">WeChat</h5>
-            </div>
-          </a>
-        </div>
-        <!-- Google Scholar -->
-        <div class="card">
-          <a href="http://go.maxhe.org/gs" target="_blank">
-            <i class="fas fa-graduation-cap"></i>
-            <div class="card-body">
-              <h5 class="card-title">Scholar</h5>
-            </div>
-          </a>
-        </div>
-        <!-- ResearchGate -->
-        <div class="card">
-          <a href="http://go.maxhe.org/rg" target="_blank">
-            <i class="fab fa-researchgate"></i>
-            <div class="card-body">
-              <h5 class="card-title">ResearchGate</h5>
-            </div>
-          </a>
-        </div>
+    <!-- Search Results Section -->
+    <section class="search-results">
+      <!-- LinkedIn Result -->
+      <div class="result-item" data-aos="fade-up" data-aos-delay="300">
+        <a class="result-title" href="https://linkedin.com/in/maxhe" target="_blank">
+          <i class="fab fa-linkedin"></i> LinkedIn - Max He
+        </a>
+        <div class="result-url">https://linkedin.com/in/maxhe</div>
+        <p class="result-snippet">LinkedIn is a popular professional social network where you can connect with Max He and learn about his professional journey and expertise in data science.</p>
+      </div>
+      <!-- Snapchat Result -->
+      <div class="result-item" data-aos="fade-up" data-aos-delay="400">
+        <a class="result-title" href="https://snapchat.com/add/maxxhe" target="_blank">
+          <i class="fab fa-snapchat"></i> Snapchat - Max He
+        </a>
+        <div class="result-url">https://snapchat.com/add/maxxhe</div>
+        <p class="result-snippet">Snapchat is a fun and ephemeral messaging platform where Max He shares creative moments and updates in a playful way.</p>
+      </div>
+      <!-- Instagram Result -->
+      <div class="result-item" data-aos="fade-up" data-aos-delay="500">
+        <a class="result-title" href="https://instagram.com/maxxhe" target="_blank">
+          <i class="fab fa-instagram"></i> Instagram - Max He
+        </a>
+        <div class="result-url">https://instagram.com/maxxhe</div>
+        <p class="result-snippet">Instagram is a visual platform where Max He showcases his creative projects, personal photography, and behind-the-scenes glimpses.</p>
+      </div>
+      <!-- WeChat Result -->
+      <div class="result-item" data-aos="fade-up" data-aos-delay="600">
+        <a class="result-title" href="images/wechat_qr.jpg" target="_blank">
+          <i class="fab fa-weixin"></i> WeChat - Max He
+        </a>
+        <div class="result-url">https://web.wechat.com/</div>
+        <p class="result-snippet">WeChat offers a unique blend of messaging and social features—connect with Max He to discover insights and creative musings.</p>
+      </div>
+      <!-- Google Scholar Result -->
+      <div class="result-item" data-aos="fade-up" data-aos-delay="700">
+        <a class="result-title" href="https://go.maxhe.org/gs" target="_blank">
+          <i class="fas fa-graduation-cap"></i> Google Scholar - Max He
+        </a>
+        <div class="result-url">https://scholar.google.com/citations?user=_ZgzMYUAAAAJ</div>
+        <p class="result-snippet">Google Scholar is a leading academic search engine where you can review Max He's scholarly publications and research contributions.</p>
+      </div>
+      <!-- ResearchGate Result -->
+      <div class="result-item" data-aos="fade-up" data-aos-delay="800">
+        <a class="result-title" href="https://go.maxhe.org/rg" target="_blank">
+          <i class="fab fa-researchgate"></i> ResearchGate - Max He
+        </a>
+        <div class="result-url">https://www.researchgate.net/profile/Max-He</div>
+        <p class="result-snippet">ResearchGate connects researchers and scientists. Explore Max He's contributions, collaborations, and academic endeavors in detail.</p>
       </div>
     </section>
     
     <!-- Footer -->
-    <footer data-aos="fade-up" data-aos-delay="600">
+    <footer data-aos="fade-up" data-aos-delay="900">
       <p>&copy; 2025 Max He. All rights reserved.</p>
     </footer>
   </div>
@@ -251,12 +244,12 @@
       once: true
     });
     
-    // Initialize tsParticles with warm, Google-inspired colors
+    // Initialize tsParticles with warm, Google-inspired colors and reduced dot count
     tsParticles.load("tsparticles", {
       fpsLimit: 60,
       particles: {
         number: {
-          value: 70,
+          value: 30,
           density: {
             enable: true,
             area: 800
