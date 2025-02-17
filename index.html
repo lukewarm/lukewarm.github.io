@@ -1,385 +1,306 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-	<meta name="description" content="Find the contact information of Max He here. Which Max He? The one that went to Peking University, University of North Carolina at Chapel Hill, and worked at DCRI, Facebook and currently a data scientist at Snap Inc formerly known as Snapchat">
-	
-  <title>Max He - a good person and data scientist at Snap Inc</title>
-	<meta name="google-site-verification" content="p6dN93T3zth7bp9YIXMm53i0MkRyLB72wHTLdWn7xVs" />
-
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href="//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.0/jquery.modal.min.css" rel="stylesheet">
-	
-  <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-  <![endif]-->
-  <style>
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,fffc00+100 */
-    body {        
-      background: #1e5799;       
-      background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFlNTc5OSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZjMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-      background: -moz-linear-gradient(left,  #1e5799 0%, #fffc00 100%); 
-      background: -webkit-gradient(linear, left top, right top, color-stop(0%,#1e5799), color-stop(100%,#fffc00));
-      background: -webkit-linear-gradient(left,  #1e5799 0%,#fffc00 100%); 
-      background: -o-linear-gradient(left,  #1e5799 0%,#fffc00 100%); 
-      background: -ms-linear-gradient(left,  #1e5799 0%,#fffc00 100%); 
-      background: linear-gradient(to right,  #1e5799 0%,#fffc00 100%); 
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#fffc00',GradientType=1 ); 
+  <meta charset="UTF-8">
+  <!-- SEO Meta Tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Max He | Data Science & Tech Enthusiast</title>
+  <meta name="description" content="Find the contact information of Max He here. Which Max He? The one that went to Peking University, University of North Carolina at Chapel Hill, worked at DCRI, Facebook (Meta), Snap (Snapchat), and currently works on Data Science at Google Search">
+  <meta name="keywords" content="Max He, data science, statistics, technology, personal website">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Max He | Data Science & Tech Enthusiast",
+    "description": "Max He went to Peking University, University of North Carolina at Chapel Hill, worked at DCRI, Facebook (Meta), Snap (Snapchat), and currently works on Data Science at Google Search.",
+    "url": "https://maxhe.org",
+    "author": {
+      "@type": "Person",
+      "name": "Max He"
     }
-	/*
-		Docs at http://http://simpleweatherjs.com
-		Weather icon font from http://fonts.artill.de/collection/artill-weather-icons
-		DO NOT hotlink the assets/font included in this demo. If you wish to use the same font icon then download it to your local assets at the link above. If you use the links below odds are at some point they will be removed and your version will break.
-	*/
-	html {
-		 width: 100%;
-		 height: 100%;
-		 /*background: #1192d3 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/austin-2.jpg) no-repeat bottom right;
-		 background-size: cover;*/
-		 /*background-image: url(images/swirl_pattern.png);
-		 background-repeat: repeat; */
-	}    
-
-	@font-face {
-			font-family: 'weather';
-			src: url('fonts/artill_clean_icons-webfont.eot');
-			src: url('fonts/artill_clean_icons-webfont.eot?#iefix') format('embedded-opentype'),
-					 url('fonts/artill_clean_icons-webfont.woff') format('woff'),
-					 url('fonts/artill_clean_icons-webfont.ttf') format('truetype'),
-					 url('fonts/artill_clean_icons-webfont.svg#artill_clean_weather_iconsRg') format('svg');
-			font-weight: normal;
-			font-style: normal;
-	}
-	body {
-		padding: 25px 0;
-		font: 13px 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;  
-	}
-	.loading {
-		margin: 65px 0 0;
-	}
-	#weather {
-		width: 350px;
-		margin: 0px auto;
-		text-align: center;
-  text-transform: uppercase;
-}
-#weather h1 {
-  margin: 0;
-  color: #fff;
-  font-family: weather;
-  font-size: 250px;
-  font-weight: normal;
-  line-height: 1.0;
-}
-#weather h1.icon-0:before { content: ":"; }
-#weather h1.icon-1:before { content: "p"; }
-#weather h1.icon-2:before { content: "S"; }
-#weather h1.icon-3:before { content: "Q"; }
-#weather h1.icon-4:before { content: "S"; }
-#weather h1.icon-5:before { content: "W"; }
-#weather h1.icon-6:before { content: "W"; }
-#weather h1.icon-7:before { content: "W"; }
-#weather h1.icon-8:before { content: "W"; }
-#weather h1.icon-9:before { content: "I"; }
-#weather h1.icon-10:before { content: "W"; }
-#weather h1.icon-11:before { content: "I"; }
-#weather h1.icon-12:before { content: "I"; }
-#weather h1.icon-13:before { content: "I"; }
-#weather h1.icon-14:before { content: "I"; }
-#weather h1.icon-15:before { content: "W"; }
-#weather h1.icon-16:before { content: "I"; }
-#weather h1.icon-17:before { content: "W"; }
-#weather h1.icon-18:before { content: "U"; }
-#weather h1.icon-19:before { content: "Z"; }
-#weather h1.icon-20:before { content: "Z"; }
-#weather h1.icon-21:before { content: "Z"; }
-#weather h1.icon-22:before { content: "Z"; }
-#weather h1.icon-23:before { content: "Z"; }
-#weather h1.icon-24:before { content: "E"; }
-#weather h1.icon-25:before { content: "E"; }
-#weather h1.icon-26:before { content: "3"; }
-#weather h1.icon-27:before { content: "a"; }
-#weather h1.icon-28:before { content: "A"; }
-#weather h1.icon-29:before { content: "a"; }
-#weather h1.icon-30:before { content: "A"; }
-#weather h1.icon-31:before { content: "6"; }
-#weather h1.icon-32:before { content: "1"; }
-#weather h1.icon-33:before { content: "6"; }
-#weather h1.icon-34:before { content: "1"; }
-#weather h1.icon-35:before { content: "W"; }
-#weather h1.icon-36:before { content: "1"; }
-#weather h1.icon-37:before { content: "S"; }
-#weather h1.icon-38:before { content: "S"; }
-#weather h1.icon-39:before { content: "S"; }
-#weather h1.icon-40:before { content: "M"; }
-#weather h1.icon-41:before { content: "W"; }
-#weather h1.icon-42:before { content: "I"; }
-#weather h1.icon-43:before { content: "W"; }
-#weather h1.icon-44:before { content: "a"; }
-#weather h1.icon-45:before { content: "S"; }
-#weather h1.icon-46:before { content: "U"; }
-#weather h1.icon-47:before { content: "S"; }
-#weather h2 {
-  margin: -50px 0 8px;
-  color: #fff;
-  font-size: 140px;
-  font-weight: 300;
-  text-align: center;
-  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
-}
-#weather ul {
-  margin: 0;
-  padding: 0;
-}
-#weather li {
-  background: #fff;
-  background: rgba(255,255,255,0.90);
-  margin: 0 15px;
-  padding: 20px;
-  display: inline-block;
-  border-radius: 5px;
-}
-#weather .updated {
-  opacity: 0.45;
-}
-    
-/* ============ */    
-/* phone mockup */
-.container{
-  max-width: 600px;
-  margin: 50px auto 100px auto;
-  font-family: 'Open Sans', sans-serif;
-}
-.phone{
-  position: relative;
-  background: #1e1e1e;
-  height: 500px;
-  width: 250px;
-  border-radius: 25px;
-  margin: 0 auto;
-}
-.camera{
-  position: absolute;
-  background: #7A7A7A;
-  height: 8px;
-  width: 8px;
-  border-radius: 15px;
-  top: 22px;
-  left: 85px;
-}
-.speaker{
-  position: absolute;
-  background: #7A7A7A;
-  height: 6px;
-  width: 50px;
-  border-radius: 15px;
-  top: 22px;
-  left: 105px;
-}
-.sleep-button{
-  position: absolute;
-  background: #1e1e1e;
-  height: 35px; 
-  width: 3px;
-  border-top-right-radius: 3px 3px;
-  border-bottom-right-radius: 3px 3px;
-  top: 105px;
-  left: 250px;
-}
-.silent-switch{
-  position: absolute;
-  background: #1e1e1e;
-  height: 25px;
-  width: 3px;
-  border-top-left-radius: 3px 3px;
-  border-bottom-left-radius: 3px 3px;
-  top: 60px;
-  left: -3px;
-}
-.volume{
-  position: absolute;
-  background: #1e1e1e;
-  width: 3px;
-  height: 35px;
-  border-top-left-radius: 3px 3px;
-  border-bottom-left-radius: 3px 3px;
-  left: -3px;
-}
-.up{
-  top: 105px;
-}
-.down{
-  top: 145px;
-}
-.screen{
-  position: absolute;
-  overflow: hidden;
-  background: #fff;
-  height: 390px;
-  width: 230px;
-  top: 50px;
-  left: 10px; 
-}
-.timer {
-  position: absolute;
-  background: rgba(0, 0, 0, 0.5);
-  height: 20px;
-  width: 20px;
-  border-radius: 3px;
-  top: 5px;
-  left: 195px;
-  padding: 5px;
-  text-align: center;
-  color: #fff;
-  font-size: 14px;
-}
-.caption-container{
-  position: absolute;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  top: 250px;
-  color: #fff;
-  text-align: center;
-}
-.caption{
-  font-size: 16px;
-  font-weight: 300;
-  margin: 8px;
-}
-.home-button{
-  position: absolute;
-  border: 1px solid #7A7A7A;
-  height: 35px;
-  width: 35px;
-  border-radius: 25px;
-  bottom: 12px;
-  left: 50%;
-  margin-left: -18px;
-}    
-/* Social Icons */
-#social_side_links {
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 0;
-  list-style: none;
-  z-index: 99;
-}
-ul#social_side_links {
-  margin: 10px;
-}	
-#social_side_links li {
-    list-style-type: none;
-    /*float: left;*/
-}
- 
-#social_side_links li a i {
-    color: #fff;
-    width: 80px;
-    height: 65px;
-    border-radius: 40px;
-    font-size: 50px;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-top: 15px;
-    transition: all 0.2s ease-in-out;
-}
-.fa-facebook {
-    background:#3b5998
-} 
-.fa-linkedin {
-    background:#007bb6
-}
-.fa-twitter {
-    background:#00aced
-}
-.fa-snapchat-ghost {
-    background:#fffc00
-}
-.fa-instagram {
-    background:#8a3ab9
-}
-.fa-weixin {
-    background:#7bb32e
-}	   
-#social_side_links li a i:hover {
-    opacity: .7;
-}
-#wechat-modal img {
-    max-width: 100%;
-}
+  }
+  </script>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --google-blue: #4285F4;
+      --google-red: #DB4437;
+      --google-yellow: #F4B400;
+      --google-green: #0F9D58;
+      --bg-light: #fff8e1;
+      --bg-accent: #ffe0b2;
+      --text-dark: #4e342e;
+      --subtext: #6d4c41;
+    }
+    /* Reset & basic styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto Mono', monospace;
+      background: linear-gradient(135deg, var(--bg-light), var(--bg-accent));
+      color: var(--text-dark);
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: var(--google-red);
+    }
+    /* tsParticles container */
+    #tsparticles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
+    /* Container */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+    }
+    /* Hero Section */
+    .hero {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 4rem;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, var(--google-blue), var(--google-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--subtext);
+    }
+    /* Intro Section */
+    .intro {
+      margin: 30px 0;
+      font-size: 1.1rem;
+      color: var(--subtext);
+    }
+    /* Social Links Section */
+    .social-links .card {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(66, 133, 244, 0.6);
+      border-radius: 15px;
+      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .social-links .card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 243, 224, 0.8);
+      border-color: var(--google-red);
+    }
+    .social-links .card i {
+      font-size: 3rem;
+      color: var(--google-blue);
+      transition: color 0.3s ease;
+    }
+    .social-links .card:hover i {
+      color: var(--google-red);
+    }
+    .social-links .card-title {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--text-dark);
+    }
+    /* 2-column grid for social links */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 40px;
+    }
+    /* Footer */
+    footer {
+      border-top: 1px solid #d7ccc8;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      color: #8d6e63;
+      margin-top: 40px;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+    }
   </style>
 </head>
-
-<body>  
-  <!-- Docs at http://http://simpleweatherjs.com -->
-  <div id="weather"></div>
-  <!-- https://codepen.io/DaBhai13/pen/BypdzB -->
-  <div class="container">
-    <div class="phone">
-      <div class="camera"></div>
-      <div class="speaker"></div>
-      <div class="sleep-button"></div>
-      <div class="silent-switch"></div>
-      <div class="volume up"></div>
-      <div class="volume down"></div>
-      <div class="screen">
-        <a target="_blank" href="https://www.snapchat.com/add/maxxhe"><img src="https://unsplash.it/230/390?random"></a>
-        <span class="timer">9</span>
-        <div class="caption-container">
-          <h3 id="snapchat-cta" class="caption">Add me on snapchat <i class="fa fa-snapchat-square" aria-hidden="true"></i></h3>
-        </div>	
-      </div>
-      <div class="home-button"></div>
-    </div>
-  </div>  
+<body>
+  <!-- Animated particles background -->
+  <div id="tsparticles"></div>
   
-  <ul id="social_side_links">
-      <li><a target="_blank" href="https://www.snapchat.com/add/maxxhe"><i class="fa fa-snapchat-ghost"></i></a></li>
-      <li><a href="#wechat-modal" rel="modal:open"><i class="fa fa-weixin"></i></a></li>
-      <li><a target="_blank" href="https://linkedin.com/in/maxhe"><i class="fa fa-linkedin"></i></a></li>
-      <!--li><a href="https://twitter.com/xhe"><i class="fa fa-twitter"></i></a></li-->
-      <li><a target="_blank" href="https://www.messenger.com/t/xmaxhe"><i class="fa fa-facebook"></i></a></li>
-      <li><a target="_blank" href="https://www.instagram.com/maxxhe/"><i class="fa fa-instagram"></i></a></li>
-  </ul>  
-	
-  <!-- Modal HTML embedded directly into document -->
-  <div id="wechat-modal" style="display:none;">
-     <p>Wechat ID: maxhexia </p> 
-     <p><img src="images/wechat_qr.JPG" alt="Wechat QR code"></p>
-  </div>	
-	
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.0/jquery.modal.min.js"></script>
-  <script>
-	// Docs at http://simpleweatherjs.com
-	$(document).ready(function() {
-		$.simpleWeather({
-			woeid: '2479714', //2357536
-			location: '',
-			unit: 'c',
-			success: function(weather) {
-				html = '<h1 class="icon-'+weather.code+'"></h1>';
-				html += '<h2>'+weather.temp+'&deg;</h2>';
-				//html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
-				//html += '<li class="currently">'+weather.currently+'</li></ul>';
-				//html += '<li>'+weather.tempAlt+'&deg;C</li></ul>';
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero" data-aos="fade-up">
+      <h1>Max He's Digital Directory</h1>
+      <p></p>
+    </section>
+    
+    <!-- Introduction Section -->
+    <section class="intro" data-aos="fade-up" data-aos-delay="200">
+      <p>Hi there!</p>
+    </section>
+    
+    <!-- Social Links Section (2 per row) -->
+    <section class="social-links" data-aos="fade-up" data-aos-delay="400">
+      <div class="social-grid">
+        <!-- LinkedIn -->
+        <div class="card">
+          <a href="https://linkedin.com/in/maxhe" target="_blank">
+            <i class="fab fa-linkedin"></i>
+            <div class="card-body">
+              <h5 class="card-title">LinkedIn</h5>
+            </div>
+          </a>
+        </div>
+        <!-- Snapchat -->
+        <div class="card">
+          <a href="https://snapchat.com/add/maxxhe" target="_blank">
+            <i class="fab fa-snapchat"></i>
+            <div class="card-body">
+              <h5 class="card-title">Snapchat</h5>
+            </div>
+          </a>
+        </div>
+        <!-- Instagram -->
+        <div class="card">
+          <a href="https://instagram.com/maxxhe" target="_blank">
+            <i class="fab fa-instagram"></i>
+            <div class="card-body">
+              <h5 class="card-title">Instagram</h5>
+            </div>
+          </a>
+        </div>
+        <!-- WeChat -->
+        <div class="card">
+          <a href="images/wechat_qr.JPG" target="_blank">
+            <i class="fab fa-weixin"></i>
+            <div class="card-body">
+              <h5 class="card-title">WeChat</h5>
+            </div>
+          </a>
+        </div>
+        <!-- Google Scholar -->
+        <div class="card">
+          <a href="http://go.maxhe.org/gs" target="_blank">
+            <i class="fas fa-graduation-cap"></i>
+            <div class="card-body">
+              <h5 class="card-title">Scholar</h5>
+            </div>
+          </a>
+        </div>
+        <!-- ResearchGate -->
+        <div class="card">
+          <a href="http://go.maxhe.org/rg" target="_blank">
+            <i class="fab fa-researchgate"></i>
+            <div class="card-body">
+              <h5 class="card-title">ResearchGate</h5>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer data-aos="fade-up" data-aos-delay="600">
+      <p>&copy; 2025 Max He. All rights reserved.</p>
+    </footer>
+  </div>
 
-				$("#weather").html(html);
-			},
-			error: function(error) {
-				$("#weather").html('<p>'+error+'</p>');
-			}
-		});
-		$("#snapchat-cta").click(function() {
-			window.open("https://www.snapchat.com/add/maxxhe");
-		});
-	});    
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <!-- tsParticles for animated background -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+  <script>
+    // Initialize AOS for scroll animations
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+    
+    // Initialize tsParticles with warm, Google-inspired colors
+    tsParticles.load("tsparticles", {
+      fpsLimit: 60,
+      particles: {
+        number: {
+          value: 70,
+          density: {
+            enable: true,
+            area: 800
+          }
+        },
+        color: {
+          value: ["#4285F4", "#DB4437", "#F4B400", "#0F9D58"]
+        },
+        shape: {
+          type: "circle"
+        },
+        opacity: {
+          value: 0.6,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 1,
+            opacity_min: 0.3,
+            sync: false
+          }
+        },
+        size: {
+          value: 4,
+          random: true,
+          anim: {
+            enable: false,
+            speed: 40,
+            size_min: 0.1,
+            sync: false
+          }
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          random: false,
+          straight: false,
+          outModes: {
+            default: "out"
+          }
+        }
+      },
+      detectRetina: true
+    });
   </script>
-	
 </body>
 </html>
