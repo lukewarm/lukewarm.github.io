@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Max He | Data Scientist & Programmer</title>
-  <meta name="description" content="Max He's personal directory. Data Scientist at Microsoft AI, formerly Google, Meta, Snap, DCRI.">
+  <meta name="description"
+    content="Max He's personal directory. Data Scientist at Microsoft AI, formerly Google, Meta, Snap, DCRI.">
   <meta name="keywords" content="Max He, data science, statistics, technology, personal website">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://maxhe.org/">
@@ -68,8 +69,11 @@
       --accent-pink: #FF69B4;
       --accent-blue: #00BFFF;
       --accent-green: #00FF00;
+      --accent-purple: #9D4EDD;
+      --accent-orange: #FF9F1C;
       --border-width: 3px;
       --shadow-offset: 6px;
+      --hover-offset: 10px;
     }
 
     /* Reset & Basic Styles */
@@ -89,140 +93,187 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      padding: 40px 20px;
     }
 
-    /* Main Card Container */
-    .main-card {
+    /* Bento Grid Container */
+    .bento-container {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    /* Card Styles */
+    .card {
       background-color: var(--card-bg);
       border: var(--border-width) solid var(--border-color);
       box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
-      max-width: 600px;
-      width: 100%;
-      padding: 40px;
-      position: relative;
-      transition: transform 0.2s ease;
-    }
-
-    /* Header */
-    header {
-      margin-bottom: 40px;
-      text-align: left;
-      border-bottom: var(--border-width) solid var(--border-color);
-      padding-bottom: 20px;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin: 0 0 10px 0;
-      text-transform: uppercase;
-      letter-spacing: -1px;
-      line-height: 1.1;
-    }
-
-    .subtitle {
-      font-size: 1.1rem;
-      font-weight: 400;
-      background-color: var(--accent-yellow);
-      display: inline-block;
-      padding: 5px 10px;
-      border: var(--border-width) solid var(--border-color);
-      transform: rotate(-1deg);
-    }
-
-    /* Links List */
-    .links-list {
+      padding: 30px;
+      transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       display: flex;
       flex-direction: column;
-      gap: 20px;
-    }
-
-    .link-item {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      color: var(--text-color);
-      background-color: var(--card-bg);
-      border: var(--border-width) solid var(--border-color);
-      padding: 15px 20px;
-      font-size: 1.2rem;
-      font-weight: 700;
-      transition: all 0.1s ease;
+      justify-content: center;
       position: relative;
-      box-shadow: 4px 4px 0 var(--shadow-color);
     }
 
-    .link-item:hover {
+    .card:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: var(--hover-offset) var(--hover-offset) 0 var(--shadow-color);
+    }
+
+    .card:active {
       transform: translate(2px, 2px);
       box-shadow: 2px 2px 0 var(--shadow-color);
     }
 
-    .link-item:active {
-      transform: translate(4px, 4px);
-      box-shadow: none;
+    /* Hero Card */
+    .hero-card {
+      grid-column: 1 / -1;
+      background-color: var(--card-bg);
+      text-align: left;
+      min-height: 300px;
+      justify-content: space-between;
     }
 
-    .link-item i {
-      font-size: 1.5rem;
-      margin-right: 15px;
-      width: 30px;
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin: 0 0 15px 0;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: 0.9;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      font-weight: 400;
+      background-color: var(--accent-yellow);
+      display: inline-block;
+      padding: 8px 15px;
+      border: var(--border-width) solid var(--border-color);
+      transform: rotate(-1deg);
+      margin-bottom: 20px;
+    }
+
+    .bio {
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 600px;
+    }
+
+    /* Link Cards */
+    .link-card {
+      text-decoration: none;
+      color: var(--text-color);
+      align-items: center;
       text-align: center;
+      min-height: 200px;
+      font-weight: 700;
+      font-size: 1.2rem;
     }
 
-    /* Specific Colors on Hover */
-    .link-item.linkedin:hover {
+    .link-card i {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .link-card:hover i {
+      transform: scale(1.2) rotate(5deg);
+    }
+
+    /* Specific Card Colors */
+    .linkedin {
+      background-color: #e6f7ff;
+    }
+
+    .snapchat {
+      background-color: #ffffe6;
+    }
+
+    .instagram {
+      background-color: #ffe6f2;
+    }
+
+    .wechat {
+      background-color: #e6ffe6;
+    }
+
+    .scholar {
+      background-color: #e6f0ff;
+    }
+
+    .researchgate {
+      background-color: #e6fffa;
+    }
+
+    .linkedin:hover {
       background-color: #0077b5;
       color: white;
     }
 
-    .link-item.snapchat:hover {
+    .snapchat:hover {
       background-color: #FFFC00;
       color: black;
     }
 
-    .link-item.instagram:hover {
+    .instagram:hover {
       background-color: #E1306C;
       color: white;
     }
 
-    .link-item.wechat:hover {
+    .wechat:hover {
       background-color: #09B83E;
       color: white;
     }
 
-    .link-item.scholar:hover {
+    .scholar:hover {
       background-color: #4285F4;
       color: white;
     }
 
-    .link-item.researchgate:hover {
+    .researchgate:hover {
       background-color: #00CCBB;
       color: white;
     }
 
     /* Footer */
     footer {
-      margin-top: 40px;
+      grid-column: 1 / -1;
       text-align: center;
       font-size: 0.9rem;
+      padding: 20px;
       border-top: var(--border-width) solid var(--border-color);
-      padding-top: 20px;
+      margin-top: 20px;
+      font-weight: bold;
     }
 
-    /* Responsive */
+    /* Responsive Grid */
+    @media (min-width: 600px) {
+      .bento-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .bento-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .hero-card {
+        grid-column: span 2;
+      }
+    }
+
     @media (max-width: 600px) {
-      .main-card {
-        padding: 20px;
-      }
-
       h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
 
-      .link-item {
-        font-size: 1rem;
-        padding: 12px 15px;
+      .card {
+        padding: 20px;
       }
     }
   </style>
@@ -230,55 +281,58 @@
 
 <body>
 
-  <main class="main-card">
-    <header>
-      <h1>Max He</h1>
-      <div class="subtitle">Data Scientist & Programmer</div>
-      <p style="margin-top: 20px; font-size: 0.9rem; line-height: 1.5;">
-        <strong>CURRENTLY:</strong> Microsoft AI<br>
-        <strong>PREVIOUSLY:</strong> Google Search, Snap, Meta, DCRI<br>
-        <strong>EDUCATION:</strong> Peking University, UNC Chapel Hill
-      </p>
-    </header>
-
-    <div class="links-list">
-      <!-- LinkedIn -->
-      <a href="https://linkedin.com/in/maxhe" target="_blank" rel="noopener noreferrer" class="link-item linkedin">
-        <i class="fab fa-linkedin" aria-hidden="true"></i>
-        <span>LINKEDIN</span>
-      </a>
-
-      <!-- Snapchat -->
-      <a href="https://snapchat.com/add/maxxhe" target="_blank" rel="noopener noreferrer" class="link-item snapchat">
-        <i class="fab fa-snapchat" aria-hidden="true"></i>
-        <span>SNAPCHAT</span>
-      </a>
-
-      <!-- Instagram -->
-      <a href="https://instagram.com/maxxhe" target="_blank" rel="noopener noreferrer" class="link-item instagram">
-        <i class="fab fa-instagram" aria-hidden="true"></i>
-        <span>INSTAGRAM</span>
-      </a>
-
-      <!-- WeChat -->
-      <a href="images/wechat_qr.jpg" target="_blank" rel="noopener noreferrer" class="link-item wechat">
-        <i class="fab fa-weixin" aria-hidden="true"></i>
-        <span>WECHAT</span>
-      </a>
-
-      <!-- Google Scholar -->
-      <a href="https://go.maxhe.org/gs" target="_blank" rel="noopener noreferrer" class="link-item scholar">
-        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
-        <span>GOOGLE SCHOLAR</span>
-      </a>
-
-      <!-- ResearchGate -->
-      <a href="https://www.researchgate.net/profile/Max-He" target="_blank" rel="noopener noreferrer"
-        class="link-item researchgate">
-        <i class="fab fa-researchgate" aria-hidden="true"></i>
-        <span>RESEARCHGATE</span>
-      </a>
+  <main class="bento-container">
+    <!-- Hero Card -->
+    <div class="card hero-card">
+      <div>
+        <h1>Max He</h1>
+        <div class="subtitle">Data Scientist & Programmer</div>
+      </div>
+      <div class="bio">
+        <p>
+          <strong>CURRENTLY:</strong> Microsoft AI<br>
+          <strong>PREVIOUSLY:</strong> Google Search, Snap, Meta, DCRI<br>
+          <strong>EDUCATION:</strong> Peking University, UNC Chapel Hill
+        </p>
+      </div>
     </div>
+
+    <!-- LinkedIn -->
+    <a href="https://linkedin.com/in/maxhe" target="_blank" rel="noopener noreferrer" class="card link-card linkedin">
+      <i class="fab fa-linkedin" aria-hidden="true"></i>
+      <span>LINKEDIN</span>
+    </a>
+
+    <!-- Snapchat -->
+    <a href="https://snapchat.com/add/maxxhe" target="_blank" rel="noopener noreferrer" class="card link-card snapchat">
+      <i class="fab fa-snapchat" aria-hidden="true"></i>
+      <span>SNAPCHAT</span>
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://instagram.com/maxxhe" target="_blank" rel="noopener noreferrer" class="card link-card instagram">
+      <i class="fab fa-instagram" aria-hidden="true"></i>
+      <span>INSTAGRAM</span>
+    </a>
+
+    <!-- WeChat -->
+    <a href="images/wechat_qr.jpg" target="_blank" rel="noopener noreferrer" class="card link-card wechat">
+      <i class="fab fa-weixin" aria-hidden="true"></i>
+      <span>WECHAT</span>
+    </a>
+
+    <!-- Google Scholar -->
+    <a href="https://go.maxhe.org/gs" target="_blank" rel="noopener noreferrer" class="card link-card scholar">
+      <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+      <span>SCHOLAR</span>
+    </a>
+
+    <!-- ResearchGate -->
+    <a href="https://www.researchgate.net/profile/Max-He" target="_blank" rel="noopener noreferrer"
+      class="card link-card researchgate">
+      <i class="fab fa-researchgate" aria-hidden="true"></i>
+      <span>RESEARCHGATE</span>
+    </a>
 
     <footer>
       &copy; 2025 MAX HE. ALL RIGHTS RESERVED.
