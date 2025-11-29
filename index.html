@@ -94,6 +94,7 @@
       justify-content: center;
       align-items: center;
       padding: 40px 20px;
+      transition: background-color 0.5s ease;
     }
 
     /* Bento Grid Container */
@@ -283,7 +284,7 @@
 
   <main class="bento-container">
     <!-- Hero Card -->
-    <div class="card hero-card">
+    <div class="card hero-card" data-bg-color="#f0f0f0">
       <div>
         <h1>Max He</h1>
         <div class="subtitle">Data Scientist & Programmer</div>
@@ -298,38 +299,43 @@
     </div>
 
     <!-- LinkedIn -->
-    <a href="https://linkedin.com/in/maxhe" target="_blank" rel="noopener noreferrer" class="card link-card linkedin">
+    <a href="https://linkedin.com/in/maxhe" target="_blank" rel="noopener noreferrer" class="card link-card linkedin"
+      data-bg-color="#e6f7ff">
       <i class="fab fa-linkedin" aria-hidden="true"></i>
       <span>LINKEDIN</span>
     </a>
 
     <!-- Snapchat -->
-    <a href="https://snapchat.com/add/maxxhe" target="_blank" rel="noopener noreferrer" class="card link-card snapchat">
+    <a href="https://snapchat.com/add/maxxhe" target="_blank" rel="noopener noreferrer" class="card link-card snapchat"
+      data-bg-color="#ffffe6">
       <i class="fab fa-snapchat" aria-hidden="true"></i>
       <span>SNAPCHAT</span>
     </a>
 
     <!-- Instagram -->
-    <a href="https://instagram.com/maxxhe" target="_blank" rel="noopener noreferrer" class="card link-card instagram">
+    <a href="https://instagram.com/maxxhe" target="_blank" rel="noopener noreferrer" class="card link-card instagram"
+      data-bg-color="#ffe6f2">
       <i class="fab fa-instagram" aria-hidden="true"></i>
       <span>INSTAGRAM</span>
     </a>
 
     <!-- WeChat -->
-    <a href="images/wechat_qr.jpg" target="_blank" rel="noopener noreferrer" class="card link-card wechat">
+    <a href="images/wechat_qr.jpg" target="_blank" rel="noopener noreferrer" class="card link-card wechat"
+      data-bg-color="#e6ffe6">
       <i class="fab fa-weixin" aria-hidden="true"></i>
       <span>WECHAT</span>
     </a>
 
     <!-- Google Scholar -->
-    <a href="https://go.maxhe.org/gs" target="_blank" rel="noopener noreferrer" class="card link-card scholar">
+    <a href="https://go.maxhe.org/gs" target="_blank" rel="noopener noreferrer" class="card link-card scholar"
+      data-bg-color="#e6f0ff">
       <i class="fas fa-graduation-cap" aria-hidden="true"></i>
       <span>SCHOLAR</span>
     </a>
 
     <!-- ResearchGate -->
     <a href="https://www.researchgate.net/profile/Max-He" target="_blank" rel="noopener noreferrer"
-      class="card link-card researchgate">
+      class="card link-card researchgate" data-bg-color="#e6fffa">
       <i class="fab fa-researchgate" aria-hidden="true"></i>
       <span>RESEARCHGATE</span>
     </a>
@@ -338,6 +344,53 @@
       &copy; 2025 MAX HE. ALL RIGHTS RESERVED.
     </footer>
   </main>
+
+  <script>
+    const body = document.body;
+    const cards = document.querySelectorAll('.card');
+
+    // Desktop Hover
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        if (window.innerWidth >= 600) {
+          const color = card.getAttribute('data-bg-color');
+          if (color) body.style.backgroundColor = color;
+        }
+      });
+      card.addEventListener('mouseleave', () => {
+        if (window.innerWidth >= 600) {
+          body.style.backgroundColor = '#f0f0f0'; // Reset to default
+        }
+      });
+    });
+
+    // Mobile Scroll (Intersection Observer)
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -20% 0px', // Trigger when element is in the middle 60% of viewport
+      threshold: 0.4
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      if (window.innerWidth < 600) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const color = entry.target.getAttribute('data-bg-color');
+            if (color) body.style.backgroundColor = color;
+          }
+        });
+      }
+    }, observerOptions);
+
+    cards.forEach(card => observer.observe(card));
+
+    // Handle Resize to reset/check state
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 600) {
+        body.style.backgroundColor = '#f0f0f0';
+      }
+    });
+  </script>
 
 </body>
 
