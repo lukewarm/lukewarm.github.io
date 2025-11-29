@@ -1,299 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Max He | Data Scientist & Programmer</title>
-  <meta name="description" content="Find the contact information of Max He here. Which Max He? The one that went to Peking University, University of North Carolina at Chapel Hill, worked at DCRI, Facebook (Meta), Snap (Snapchat), and currently works on Data Science at Google Search">
+  <meta name="description" content="Max He's personal directory. Data Scientist at Microsoft AI, formerly Google, Meta, Snap, DCRI.">
   <meta name="keywords" content="Max He, data science, statistics, technology, personal website">
   <meta name="robots" content="index, follow">
-  
+  <link rel="canonical" href="https://maxhe.org/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://maxhe.org/">
+  <meta property="og:title" content="Max He | Data Scientist & Programmer">
+  <meta property="og:description"
+    content="Max He's personal directory. Data Scientist at Microsoft AI, formerly Google, Meta, Snap, DCRI.">
+  <meta property="og:image" content="https://maxhe.org/images/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://maxhe.org/">
+  <meta name="twitter:title" content="Max He | Data Scientist & Programmer">
+  <meta name="twitter:description"
+    content="Max He's personal directory. Data Scientist at Microsoft AI, formerly Google, Meta, Snap, DCRI.">
+  <meta name="twitter:image" content="https://maxhe.org/images/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Max He | Data Scientist & Programmer",
-    "description": "Max He went to Peking University, University of North Carolina at Chapel Hill, worked at DCRI, Facebook (Meta), Snap (Snapchat), and currently works in data science at Google Search.",
+    "description": "Max He went to Peking University, University of North Carolina at Chapel Hill, worked at DCRI, Facebook (Meta), Snap, Google Search, and currently works in data science at Microsoft AI.",
     "url": "https://maxhe.org",
     "author": {
       "@type": "Person",
-      "name": "Max He"
+      "name": "Max He",
+      "url": "https://maxhe.org",
+      "sameAs": [
+        "https://linkedin.com/in/maxhe",
+        "https://scholar.google.com/citations?user=_ZgzMYUAAAAJ",
+        "https://www.researchgate.net/profile/Max-He"
+      ]
     }
   }
   </script>
-  
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <!-- AOS Animation CSS -->
-  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+
   <style>
+    /* Neo-Brutalist Theme Variables */
     :root {
-      --google-blue: #4285F4;
-      --google-red: #DB4437;
-      --google-yellow: #F4B400;
-      --google-green: #0F9D58;
-      --bg-light: #fff8e1;
-      --bg-accent: #ffe0b2;
-      --text-dark: #4e342e;
-      --subtext: #6d4c41;
+      --bg-color: #f0f0f0;
+      --card-bg: #ffffff;
+      --text-color: #000000;
+      --border-color: #000000;
+      --shadow-color: #000000;
+      --accent-yellow: #FFDE00;
+      --accent-pink: #FF69B4;
+      --accent-blue: #00BFFF;
+      --accent-green: #00FF00;
+      --border-width: 3px;
+      --shadow-offset: 6px;
     }
-    /* Reset & basic styles */
+
+    /* Reset & Basic Styles */
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
     }
+
     body {
-      font-family: 'Roboto Mono', monospace;
-      background: linear-gradient(135deg, var(--bg-light), var(--bg-accent));
-      color: var(--text-dark);
-      line-height: 1.6;
-      position: relative;
-      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: 'Space Mono', monospace;
+      background-color: var(--bg-color);
+      background-image: radial-gradient(#000 1px, transparent 1px);
+      background-size: 20px 20px;
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
-    a {
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: var(--google-red);
-    }
-    /* tsParticles container */
-    #tsparticles {
-      position: fixed;
+
+    /* Main Card Container */
+    .main-card {
+      background-color: var(--card-bg);
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
+      max-width: 600px;
       width: 100%;
-      height: 100%;
-      z-index: -1;
-      top: 0;
-      left: 0;
+      padding: 40px;
+      position: relative;
+      transition: transform 0.2s ease;
     }
-    /* Container */
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-    /* Hero Section (SERP header style) */
-    .hero {
-      padding: 40px 0 20px;
+
+    /* Header */
+    header {
+      margin-bottom: 40px;
       text-align: left;
-      border-bottom: 1px solid #d7ccc8;
-      margin-bottom: 20px;
+      border-bottom: var(--border-width) solid var(--border-color);
+      padding-bottom: 20px;
     }
-    .hero h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3.5rem;
-      margin-bottom: 10px;
-      background: linear-gradient(45deg, var(--google-blue), var(--google-red));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0 0 10px 0;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      line-height: 1.1;
     }
-    .hero p {
-      font-size: 1rem;
-      color: var(--subtext);
-    }
-    /* Intro Section */
-    .intro {
-      margin: 30px 0;
+
+    .subtitle {
       font-size: 1.1rem;
-      color: var(--subtext);
-      text-align: left;
+      font-weight: 400;
+      background-color: var(--accent-yellow);
+      display: inline-block;
+      padding: 5px 10px;
+      border: var(--border-width) solid var(--border-color);
+      transform: rotate(-1deg);
     }
-    /* Search Results Section */
-    .search-results {
-      text-align: left;
+
+    /* Links List */
+    .links-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
-    .result-item {
-      margin-bottom: 30px;
-      padding-bottom: 15px;
-      border-bottom: 1px solid #ccc;
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--text-color);
+      background-color: var(--card-bg);
+      border: var(--border-width) solid var(--border-color);
+      padding: 15px 20px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      transition: all 0.1s ease;
+      position: relative;
+      box-shadow: 4px 4px 0 var(--shadow-color);
     }
-    .result-item:last-child {
-      border-bottom: none;
+
+    .link-item:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--shadow-color);
     }
-    .result-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.8rem;
-      color: var(--google-blue);
+
+    .link-item:active {
+      transform: translate(4px, 4px);
+      box-shadow: none;
     }
-    .result-title:hover {
-      text-decoration: underline;
-    }
-    .result-url {
-      font-size: 0.9rem;
-      color: #006621;
-      margin-bottom: 5px;
-    }
-    .result-snippet {
-      font-size: 1rem;
-      color: #545454;
-    }
-    /* Footer */
-    footer {
-      border-top: 1px solid #d7ccc8;
-      padding: 20px 0;
-      font-size: 0.9rem;
-      color: #8d6e63;
-      margin-top: 40px;
+
+    .link-item i {
+      font-size: 1.5rem;
+      margin-right: 15px;
+      width: 30px;
       text-align: center;
     }
-    /* Responsive adjustments */
+
+    /* Specific Colors on Hover */
+    .link-item.linkedin:hover {
+      background-color: #0077b5;
+      color: white;
+    }
+
+    .link-item.snapchat:hover {
+      background-color: #FFFC00;
+      color: black;
+    }
+
+    .link-item.instagram:hover {
+      background-color: #E1306C;
+      color: white;
+    }
+
+    .link-item.wechat:hover {
+      background-color: #09B83E;
+      color: white;
+    }
+
+    .link-item.scholar:hover {
+      background-color: #4285F4;
+      color: white;
+    }
+
+    .link-item.researchgate:hover {
+      background-color: #00CCBB;
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: var(--border-width) solid var(--border-color);
+      padding-top: 20px;
+    }
+
+    /* Responsive */
     @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 2.8rem;
+      .main-card {
+        padding: 20px;
       }
-      .result-title {
-        font-size: 1.5rem;
+
+      h1 {
+        font-size: 2rem;
       }
-      .result-snippet, .result-url, .hero p, .intro {
-        font-size: 0.95rem;
+
+      .link-item {
+        font-size: 1rem;
+        padding: 12px 15px;
       }
     }
   </style>
 </head>
-<body>
-  <!-- tsParticles Animated Background -->
-  <div id="tsparticles"></div>
-  
-  <div class="container">
-    <!-- Hero Section (SERP header style) -->
-    <section class="hero" data-aos="fade-up">
-      <h1>Max He's Digital Directory</h1>
-      <p></p>
-    </section>
-    
-    <!-- Introduction Section -->
-    <section class="intro" data-aos="fade-up" data-aos-delay="200">
-      <p>Hello visitor! Here you'll find a list of links to my online profiles.</p>
-    </section>
-    
-    <!-- Search Results Section -->
-    <section class="search-results">
-      <!-- LinkedIn Result -->
-      <div class="result-item" data-aos="fade-up" data-aos-delay="300">
-        <a class="result-title" href="https://linkedin.com/in/maxhe" target="_blank">
-          <i class="fab fa-linkedin"></i> LinkedIn - Max He
-        </a>
-        <div class="result-url">https://linkedin.com/in/maxhe</div>
-        <p class="result-snippet">LinkedIn is a popular professional social network where you can connect with Max He and learn about his professional journey and expertise in data science.</p>
-      </div>
-      <!-- Snapchat Result -->
-      <div class="result-item" data-aos="fade-up" data-aos-delay="400">
-        <a class="result-title" href="https://snapchat.com/add/maxxhe" target="_blank">
-          <i class="fab fa-snapchat"></i> Snapchat - Max He
-        </a>
-        <div class="result-url">https://snapchat.com/add/maxxhe</div>
-        <p class="result-snippet">Snapchat is a fun and ephemeral messaging platform where Max He shares creative moments and updates in a playful way.</p>
-      </div>
-      <!-- Instagram Result -->
-      <div class="result-item" data-aos="fade-up" data-aos-delay="500">
-        <a class="result-title" href="https://instagram.com/maxxhe" target="_blank">
-          <i class="fab fa-instagram"></i> Instagram - Max He
-        </a>
-        <div class="result-url">https://instagram.com/maxxhe</div>
-        <p class="result-snippet">Instagram is a visual platform where Max He showcases his creative projects, personal photography, and behind-the-scenes glimpses.</p>
-      </div>
-      <!-- WeChat Result -->
-      <div class="result-item" data-aos="fade-up" data-aos-delay="600">
-        <a class="result-title" href="images/wechat_qr.jpg" target="_blank">
-          <i class="fab fa-weixin"></i> WeChat - Max He
-        </a>
-        <div class="result-url">https://web.wechat.com/</div>
-        <p class="result-snippet">WeChat offers a unique blend of messaging and social features—connect with Max He to discover insights and creative musings.</p>
-      </div>
-      <!-- Google Scholar Result -->
-      <div class="result-item" data-aos="fade-up" data-aos-delay="700">
-        <a class="result-title" href="https://go.maxhe.org/gs" target="_blank">
-          <i class="fas fa-graduation-cap"></i> Google Scholar - Max He
-        </a>
-        <div class="result-url">https://scholar.google.com/citations?user=_ZgzMYUAAAAJ</div>
-        <p class="result-snippet">Google Scholar is a leading academic search engine where you can review Max He's scholarly publications and research contributions.</p>
-      </div>
-      <!-- ResearchGate Result -->
-      <div class="result-item" data-aos="fade-up" data-aos-delay="800">
-        <a class="result-title" href="https://go.maxhe.org/rg" target="_blank">
-          <i class="fab fa-researchgate"></i> ResearchGate - Max He
-        </a>
-        <div class="result-url">https://www.researchgate.net/profile/Max-He</div>
-        <p class="result-snippet">ResearchGate connects researchers and scientists. Explore Max He's contributions, collaborations, and academic endeavors in detail.</p>
-      </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer data-aos="fade-up" data-aos-delay="900">
-      <p>&copy; 2025 Max He. All rights reserved.</p>
-    </footer>
-  </div>
 
-  <!-- Bootstrap JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- AOS JS -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <!-- tsParticles for animated background -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
-  <script>
-    // Initialize AOS for scroll animations
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
-    
-    // Initialize tsParticles with warm, Google-inspired colors and reduced dot count
-    tsParticles.load("tsparticles", {
-      fpsLimit: 60,
-      particles: {
-        number: {
-          value: 30,
-          density: {
-            enable: true,
-            area: 800
-          }
-        },
-        color: {
-          value: ["#4285F4", "#DB4437", "#F4B400", "#0F9D58"]
-        },
-        shape: {
-          type: "circle"
-        },
-        opacity: {
-          value: 0.6,
-          random: true,
-          anim: {
-            enable: true,
-            speed: 1,
-            opacity_min: 0.3,
-            sync: false
-          }
-        },
-        size: {
-          value: 4,
-          random: true,
-          anim: {
-            enable: false,
-            speed: 40,
-            size_min: 0.1,
-            sync: false
-          }
-        },
-        move: {
-          enable: true,
-          speed: 2,
-          direction: "none",
-          random: false,
-          straight: false,
-          outModes: {
-            default: "out"
-          }
-        }
-      },
-      detectRetina: true
-    });
-  </script>
+<body>
+
+  <main class="main-card">
+    <header>
+      <h1>Max He</h1>
+      <div class="subtitle">Data Scientist & Programmer</div>
+      <p style="margin-top: 20px; font-size: 0.9rem; line-height: 1.5;">
+        <strong>CURRENTLY:</strong> Microsoft AI<br>
+        <strong>PREVIOUSLY:</strong> Google Search, Snap, Meta, DCRI<br>
+        <strong>EDUCATION:</strong> Peking University, UNC Chapel Hill
+      </p>
+    </header>
+
+    <div class="links-list">
+      <!-- LinkedIn -->
+      <a href="https://linkedin.com/in/maxhe" target="_blank" rel="noopener noreferrer" class="link-item linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+        <span>LINKEDIN</span>
+      </a>
+
+      <!-- Snapchat -->
+      <a href="https://snapchat.com/add/maxxhe" target="_blank" rel="noopener noreferrer" class="link-item snapchat">
+        <i class="fab fa-snapchat" aria-hidden="true"></i>
+        <span>SNAPCHAT</span>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://instagram.com/maxxhe" target="_blank" rel="noopener noreferrer" class="link-item instagram">
+        <i class="fab fa-instagram" aria-hidden="true"></i>
+        <span>INSTAGRAM</span>
+      </a>
+
+      <!-- WeChat -->
+      <a href="images/wechat_qr.jpg" target="_blank" rel="noopener noreferrer" class="link-item wechat">
+        <i class="fab fa-weixin" aria-hidden="true"></i>
+        <span>WECHAT</span>
+      </a>
+
+      <!-- Google Scholar -->
+      <a href="https://go.maxhe.org/gs" target="_blank" rel="noopener noreferrer" class="link-item scholar">
+        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+        <span>GOOGLE SCHOLAR</span>
+      </a>
+
+      <!-- ResearchGate -->
+      <a href="https://www.researchgate.net/profile/Max-He" target="_blank" rel="noopener noreferrer"
+        class="link-item researchgate">
+        <i class="fab fa-researchgate" aria-hidden="true"></i>
+        <span>RESEARCHGATE</span>
+      </a>
+    </div>
+
+    <footer>
+      &copy; 2025 MAX HE. ALL RIGHTS RESERVED.
+    </footer>
+  </main>
+
 </body>
+
 </html>
