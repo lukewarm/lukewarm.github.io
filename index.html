@@ -92,44 +92,26 @@
         <p class="news"><span class="tag">New</span> <span><a href="#breakitdown">breakitdown</a>: A/B tests on Spark, sliced by any user or metric segment.</span></p>
       </div>
 
-      <figure class="figure" data-ab aria-labelledby="fig-caption">
+      <figure class="figure" id="play" data-game data-mode="demo" aria-labelledby="fig-caption">
         <div class="fig-head">
-          <span><b>Fig. 1</b> &nbsp;A live A/B test</span>
-          <button class="replay" type="button" data-ab-replay>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 3v6h6"/></svg>
-            Replay
-          </button>
+          <span class="fig-title"><b data-game-label>Fig. 1</b> <span data-game-title>Call it</span></span>
+          <span class="fig-actions">
+            <span class="hearts" data-game-hearts hidden></span>
+            <span class="score" data-game-score hidden></span>
+            <button class="replay" type="button" data-game-start>Play 6 levels</button>
+          </span>
         </div>
         <div class="stage">
-          <canvas role="img" aria-label="Users stream in from the left, split into a control and a treatment flight, and convert or not."></canvas>
-          <span class="lane users" aria-hidden="true">Users</span>
-          <span class="lane control" aria-hidden="true">Control</span>
-          <span class="lane treatment" aria-hidden="true">Treatment</span>
-          <span class="legend" aria-hidden="true"><i class="ring"></i>user <i class="dot"></i>converted</span>
+          <canvas role="img" aria-label="Users stream in, split into a control and a treatment group, and convert or not."></canvas>
+          <div data-game-labels aria-hidden="true"></div>
+          <div class="card" data-game-card hidden></div>
         </div>
-        <dl class="readout">
-          <div><dt>Users</dt><dd data-ab-n>0</dd></div>
-          <div><dt>Control</dt><dd class="control-value" data-ab-control>&mdash;</dd></div>
-          <div><dt>Treatment</dt><dd class="treatment-value" data-ab-treatment>&mdash;</dd></div>
-          <div><dt>p-value</dt><dd data-ab-p>&mdash;</dd></div>
-        </dl>
-        <div class="ci">
-          <div class="ci-row">
-            <span>Lift <strong data-ab-lift>&mdash;</strong> &nbsp;<span data-ab-ci>collecting&hellip;</span> <span class="truth" data-ab-truth></span></span>
-            <span class="verdict" data-ab-verdict></span>
-          </div>
-          <div class="track" aria-hidden="true">
-            <span class="zero"></span>
-            <span class="interval" data-ab-interval></span>
-            <span class="point" data-ab-point></span>
-            <span class="truth-mark" data-ab-truth-mark></span>
-          </div>
-          <div class="ticks" aria-hidden="true"><span>&minus;30%</span><span>&minus;15%</span><span>0</span><span>+15%</span><span>+30%</span></div>
-        </div>
-        <figcaption id="fig-caption">
-          Fake users, real statistics. Each run hides a true lift that's revealed at the end, so try calling it
-          before the interval does. <b>Telling real lifts from lucky streaks is my day job.</b>
+        <div data-game-stats></div>
+        <div class="console" data-game-console></div>
+        <figcaption id="fig-caption" data-game-caption>
+          Make your call at the early look, then watch the full test settle it. Telling real lifts from lucky streaks is my day job.
         </figcaption>
+        <p class="visually-hidden" aria-live="polite" data-game-live></p>
       </figure>
     </section>
 
@@ -286,5 +268,6 @@ end_date: <span class="kw">str</span> = <span class="str">"2024-01-01"</span>   
   </dialog>
 
   <script src="/assets/site.js" defer></script>
+  <script src="/assets/game.js" defer></script>
 </body>
 </html>
