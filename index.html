@@ -1,413 +1,290 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Max He | Data Scientist & Programmer</title>
-  <meta name="description"
-    content="Max He's personal directory. Data Scientist at Microsoft AI, formerly Google, Meta, Snap, DCRI.">
-  <meta name="keywords" content="Max He, data science, statistics, technology, personal website">
-  <meta name="robots" content="index, follow">
+  <title>Max He · Data scientist &amp; programmer</title>
+  <meta name="description" content="Max He is a data scientist and programmer at Microsoft AI, formerly at Google Search, Snap, Meta and Duke Clinical Research Institute. Experimentation, causal inference, breakitdown and nbforge.">
   <link rel="canonical" href="https://maxhe.org/">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f5f2ea" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0f0e" media="(prefers-color-scheme: dark)">
 
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://maxhe.org/">
-  <meta property="og:title" content="Max He | Data Scientist & Programmer">
-  <meta property="og:description"
-    content="Max He's personal directory. Data Scientist at Microsoft AI, formerly Google, Meta, Snap, DCRI.">
-  <meta property="og:image" content="https://maxhe.org/images/og-image.jpg">
-
-  <!-- Twitter -->
+  <meta property="og:title" content="Max He · Data scientist &amp; programmer">
+  <meta property="og:description" content="Statistician by training. Experimentation, causal inference and the tools that make them easy. Now at Microsoft AI.">
+  <meta property="og:image" content="https://maxhe.org/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Max He, data scientist and programmer, with a live A/B test figure">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://maxhe.org/">
-  <meta name="twitter:title" content="Max He | Data Scientist & Programmer">
-  <meta name="twitter:description"
-    content="Max He's personal directory. Data Scientist at Microsoft AI, formerly Google, Meta, Snap, DCRI.">
-  <meta name="twitter:image" content="https://maxhe.org/images/og-image.jpg">
+  <meta name="twitter:title" content="Max He · Data scientist &amp; programmer">
+  <meta name="twitter:description" content="Statistician by training. Experimentation, causal inference and the tools that make them easy. Now at Microsoft AI.">
+  <meta name="twitter:image" content="https://maxhe.org/images/og.png">
 
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <!-- Structured Data -->
+  <script>
+    try {
+      var theme = localStorage.getItem("theme");
+      if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+    } catch (e) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+  <link rel="stylesheet" href="/assets/site.css">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Max He | Data Scientist & Programmer",
-    "description": "Max He went to Peking University, University of North Carolina at Chapel Hill, worked at DCRI, Facebook (Meta), Snap, Google Search, and currently works in data science at Microsoft AI.",
-    "url": "https://maxhe.org",
-    "author": {
-      "@type": "Person",
-      "name": "Max He",
-      "url": "https://maxhe.org",
-      "sameAs": [
-        "https://linkedin.com/in/maxhe",
-        "https://scholar.google.com/citations?user=_ZgzMYUAAAAJ",
-        "https://www.researchgate.net/profile/Max-He"
-      ]
-    }
+    "@type": "Person",
+    "name": "Max He",
+    "url": "https://maxhe.org/",
+    "jobTitle": "Data Scientist",
+    "worksFor": { "@type": "Organization", "name": "Microsoft AI" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Peking University" },
+      { "@type": "CollegeOrUniversity", "name": "University of North Carolina at Chapel Hill" }
+    ],
+    "knowsAbout": ["Experimentation", "A/B testing", "Causal inference", "Biostatistics", "Data science platforms"],
+    "sameAs": [
+      "https://linkedin.com/in/maxhe",
+      "https://github.com/lukewarm",
+      "https://scholar.google.com/citations?user=_ZgzMYUAAAAJ",
+      "https://www.researchgate.net/profile/Max-He",
+      "https://instagram.com/maxxhe"
+    ]
   }
   </script>
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
-    rel="stylesheet">
-
-  <style>
-    /* Neo-Brutalist Theme Variables */
-    :root {
-      --bg-color: #f0f0f0;
-      --card-bg: #ffffff;
-      --text-color: #000000;
-      --border-color: #000000;
-      --shadow-color: #000000;
-      --accent-yellow: #FFDE00;
-      --accent-pink: #FF69B4;
-      --accent-blue: #00BFFF;
-      --accent-green: #00FF00;
-      --accent-purple: #9D4EDD;
-      --accent-orange: #FF9F1C;
-      --border-width: 3px;
-      --shadow-offset: 6px;
-      --hover-offset: 10px;
-    }
-
-    /* Reset & Basic Styles */
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      font-family: 'Space Mono', monospace;
-      background-color: var(--bg-color);
-      background-image: radial-gradient(#000 1px, transparent 1px);
-      background-size: 20px 20px;
-      color: var(--text-color);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 20px;
-      transition: background-color 0.5s ease;
-    }
-
-    /* Bento Grid Container */
-    .bento-container {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      gap: 20px;
-      max-width: 1000px;
-      width: 100%;
-    }
-
-    /* Card Styles */
-    .card {
-      background-color: var(--card-bg);
-      border: var(--border-width) solid var(--border-color);
-      box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
-      padding: 30px;
-      transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-    }
-
-    .card:hover {
-      transform: translate(-4px, -4px);
-      box-shadow: var(--hover-offset) var(--hover-offset) 0 var(--shadow-color);
-    }
-
-    .card:active {
-      transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0 var(--shadow-color);
-    }
-
-    /* Hero Card */
-    .hero-card {
-      grid-column: 1 / -1;
-      background-color: var(--card-bg);
-      text-align: left;
-      min-height: 300px;
-      justify-content: space-between;
-    }
-
-    h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin: 0 0 15px 0;
-      text-transform: uppercase;
-      letter-spacing: -2px;
-      line-height: 0.9;
-    }
-
-    .subtitle {
-      font-size: 1.2rem;
-      font-weight: 400;
-      background-color: var(--accent-yellow);
-      display: inline-block;
-      padding: 8px 15px;
-      border: var(--border-width) solid var(--border-color);
-      transform: rotate(-1deg);
-      margin-bottom: 20px;
-    }
-
-    .bio {
-      font-size: 1rem;
-      line-height: 1.6;
-      max-width: 600px;
-    }
-
-    /* Link Cards */
-    .link-card {
-      text-decoration: none;
-      color: var(--text-color);
-      align-items: center;
-      text-align: center;
-      min-height: 200px;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .link-card i {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      transition: transform 0.2s ease;
-    }
-
-    .link-card:hover i {
-      transform: scale(1.2) rotate(5deg);
-    }
-
-    /* Specific Card Colors */
-    .linkedin {
-      background-color: #e6f7ff;
-    }
-
-    .snapchat {
-      background-color: #ffffe6;
-    }
-
-    .instagram {
-      background-color: #ffe6f2;
-    }
-
-    .wechat {
-      background-color: #e6ffe6;
-    }
-
-    .scholar {
-      background-color: #e6f0ff;
-    }
-
-    .researchgate {
-      background-color: #e6fffa;
-    }
-
-    .nbforge {
-      background-color: #fff0e6;
-    }
-
-    .linkedin:hover {
-      background-color: #0077b5;
-      color: white;
-    }
-
-    .snapchat:hover {
-      background-color: #FFFC00;
-      color: black;
-    }
-
-    .instagram:hover {
-      background-color: #E1306C;
-      color: white;
-    }
-
-    .wechat:hover {
-      background-color: #09B83E;
-      color: white;
-    }
-
-    .scholar:hover {
-      background-color: #4285F4;
-      color: white;
-    }
-
-    .researchgate:hover {
-      background-color: #00CCBB;
-      color: white;
-    }
-
-    .nbforge:hover {
-      background-color: #FF9F1C;
-      color: white;
-    }
-
-    /* Footer */
-    footer {
-      grid-column: 1 / -1;
-      text-align: center;
-      font-size: 0.9rem;
-      padding: 20px;
-      border-top: var(--border-width) solid var(--border-color);
-      margin-top: 20px;
-      font-weight: bold;
-    }
-
-    /* Responsive Grid */
-    @media (min-width: 600px) {
-      .bento-container {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 900px) {
-      .bento-container {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .hero-card {
-        grid-column: span 2;
-      }
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2.5rem;
-      }
-
-      .card {
-        padding: 20px;
-      }
-    }
-  </style>
 </head>
-
 <body>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <main class="bento-container">
-    <!-- Hero Card -->
-    <div class="card hero-card" data-bg-color="#f0f0f0">
+  <header class="top wrap">
+    <a class="wordmark" href="/">Max He</a>
+    <nav aria-label="Sections">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#elsewhere">Elsewhere</a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/>
+        </svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main" class="wrap">
+    <section class="hero" aria-label="Introduction">
       <div>
-        <h1>Max He</h1>
-        <div class="subtitle">Data Scientist & Programmer</div>
+        <p class="eyebrow">Data scientist &amp; programmer</p>
+        <h1>Max <em>He</em></h1>
+        <p class="lede">Statistician by training. Most of my work has been on experimentation, causal inference, and the tools that make them easy to do well.</p>
+        <p class="lede">Now at <strong>Microsoft AI</strong>. Before that, Google Search, Snap, Meta and Duke Clinical Research Institute.</p>
+        <p class="news"><span class="tag">New</span> <span><a href="#breakitdown">breakitdown</a>: A/B tests on Spark, sliced by any user or metric segment.</span></p>
       </div>
-      <div class="bio">
-        <p>
-          <strong>CURRENTLY:</strong> Microsoft AI<br>
-          <strong>PREVIOUSLY:</strong> Google Search, Snap, Meta, DCRI<br>
-          <strong>EDUCATION:</strong> Peking University, UNC Chapel Hill
-        </p>
+
+      <figure class="figure" data-ab aria-labelledby="fig-caption">
+        <div class="fig-head">
+          <span><b>Fig. 1</b> &nbsp;A live A/B test</span>
+          <button class="replay" type="button" data-ab-replay>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 3v6h6"/></svg>
+            Replay
+          </button>
+        </div>
+        <div class="stage">
+          <canvas role="img" aria-label="Users stream in from the left, split into a control and a treatment flight, and convert or not."></canvas>
+          <span class="lane users" aria-hidden="true">Users</span>
+          <span class="lane control" aria-hidden="true">Control</span>
+          <span class="lane treatment" aria-hidden="true">Treatment</span>
+          <span class="legend" aria-hidden="true"><i class="ring"></i>user <i class="dot"></i>converted</span>
+        </div>
+        <dl class="readout">
+          <div><dt>Users</dt><dd data-ab-n>0</dd></div>
+          <div><dt>Control</dt><dd class="control-value" data-ab-control>&mdash;</dd></div>
+          <div><dt>Treatment</dt><dd class="treatment-value" data-ab-treatment>&mdash;</dd></div>
+          <div><dt>p-value</dt><dd data-ab-p>&mdash;</dd></div>
+        </dl>
+        <div class="ci">
+          <div class="ci-row">
+            <span>Lift <strong data-ab-lift>&mdash;</strong> &nbsp;<span data-ab-ci>collecting&hellip;</span> <span class="truth" data-ab-truth></span></span>
+            <span class="verdict" data-ab-verdict></span>
+          </div>
+          <div class="track" aria-hidden="true">
+            <span class="zero"></span>
+            <span class="interval" data-ab-interval></span>
+            <span class="point" data-ab-point></span>
+            <span class="truth-mark" data-ab-truth-mark></span>
+          </div>
+          <div class="ticks" aria-hidden="true"><span>&minus;30%</span><span>&minus;15%</span><span>0</span><span>+15%</span><span>+30%</span></div>
+        </div>
+        <figcaption id="fig-caption">
+          Fake users, real statistics. Each run hides a true lift that's revealed at the end, so try calling it
+          before the interval does. <b>Telling real lifts from lucky streaks is my day job.</b>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <div class="section-head"><span class="num">01</span><h2 id="projects-title">Projects</h2></div>
+      <div class="projects">
+        <article class="project" id="breakitdown">
+          <div class="about">
+            <div class="project-meta"><span class="tag">New</span>Python · PySpark · Apache-2.0</div>
+            <h3>breakitdown</h3>
+            <p>A/B tests on Spark, sliced by any user or metric segment. Count, binary, ratio and quantile metrics
+              with delta-method intervals, computed on the tables you already have.</p>
+            <div class="project-links">
+              <a href="https://github.com/lukewarm/breakitdown" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+              <a href="https://pypi.org/project/breakitdown/" target="_blank" rel="noopener noreferrer">PyPI ↗</a>
+            </div>
+          </div>
+          <div class="code">
+<pre><code><span class="kw">from</span> breakitdown <span class="kw">import</span> Count, Experiment, MetricTable
+
+exp = <span class="fn">Experiment</span>(<span class="str">"control"</span>, [<span class="str">"t1"</span>],
+                 <span class="str">"2024-03-01"</span>, <span class="str">"2024-03-14"</span>,
+                 user_segments=[<span class="str">"os"</span>, <span class="str">"country"</span>])
+events = <span class="fn">MetricTable</span>(<span class="str">"db.app_events"</span>, [<span class="fn">Count</span>(<span class="str">"clicks"</span>)])
+exp.<span class="fn">analyze</span>(events).<span class="fn">by_user_segment</span>(<span class="str">"os"</span>)</code></pre>
+            <div class="install">
+              <code>pip install breakitdown</code>
+              <button class="copy" type="button" data-copy="pip install breakitdown" aria-label="Copy the install command">Copy</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="project" id="nbforge">
+          <div class="about">
+            <div class="project-meta">Jupyter · Open source</div>
+            <h3>nbforge</h3>
+            <p>A data science and analytics platform that turns Jupyter notebooks into web apps and pipeline tasks.
+              Add a parameters cell and a notebook gets a form, an API endpoint and a run history.</p>
+            <div class="project-links">
+              <a href="https://nbforge.com" target="_blank" rel="noopener noreferrer">nbforge.com ↗</a>
+              <a href="https://demo.nbforge.com" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
+              <a href="https://github.com/lukewarm/nbforge" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </div>
+          <div class="nb-demo" role="group" aria-label="A notebook parameters cell becomes a form">
+            <div>
+              <p class="nb-label">Parameters cell</p>
+<pre><code>start_date: <span class="kw">str</span> = <span class="str">"2023-01-01"</span>  <span class="cm"># {"input_type": "date"}</span>
+end_date: <span class="kw">str</span> = <span class="str">"2024-01-01"</span>    <span class="cm"># {"input_type": "date"}</span></code></pre>
+            </div>
+            <span class="nb-arrow" aria-hidden="true">↓</span>
+            <div>
+              <p class="nb-label">Generated form</p>
+              <div class="nb-form" aria-hidden="true">
+                <div class="nb-field">start_date<span class="nb-input">2023-01-01 <span class="caret">▾</span></span></div>
+                <div class="nb-field">end_date<span class="nb-input">2024-01-01 <span class="caret">▾</span></span></div>
+                <span class="nb-run">Run</span>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
-    </div>
+    </section>
 
-    <!-- LinkedIn -->
-    <a href="https://linkedin.com/in/maxhe" target="_blank" rel="noopener noreferrer" class="card link-card linkedin"
-      data-bg-color="#e6f7ff">
-      <i class="fab fa-linkedin" aria-hidden="true"></i>
-      <span>LINKEDIN</span>
-    </a>
+    <section id="experience" class="section" aria-labelledby="experience-title">
+      <div class="section-head"><span class="num">02</span><h2 id="experience-title">Experience</h2></div>
+      <ol class="timeline">
+        <li class="now">
+          <span class="when">Now</span>
+          <div class="what">
+            <h3 class="org">Microsoft AI</h3>
+            <p class="role">Data science</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2025</span>
+          <div class="what">
+            <h3 class="org">Google Search</h3>
+            <p class="role">Senior Data Science Manager</p>
+            <p class="focus">Search quality, trust and safety, and growth and experimentation for Core Search, including its generative AI features.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2017–2025</span>
+          <div class="what">
+            <h3 class="org">Snap</h3>
+            <p class="role">Staff Data Scientist, then Data Science Manager and Senior Data Science Manager</p>
+            <p class="focus">Experimentation and causal inference: A/B testing methods and the A/B platform, ad ranking and ad experimentation, and an internal notebook platform for reporting and causal inference.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2016–2017</span>
+          <div class="what">
+            <h3 class="org">Meta</h3>
+            <p class="role">Data Scientist, Infrastructure Strategy</p>
+            <p class="focus">Capacity planning, peak-usage forecasting and media playback performance.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2010–2016</span>
+          <div class="what">
+            <h3 class="org">Duke Clinical Research Institute</h3>
+            <p class="role">Statistician</p>
+            <p class="focus">Bayesian hierarchical models, risk prediction and causal inference on clinical registry data.
+              <a href="https://go.maxhe.org/gs" target="_blank" rel="noopener noreferrer">Papers on Google Scholar ↗</a></p>
+          </div>
+        </li>
+      </ol>
 
-    <!-- Snapchat -->
-    <a href="https://snapchat.com/add/maxxhe" target="_blank" rel="noopener noreferrer" class="card link-card snapchat"
-      data-bg-color="#ffffe6">
-      <i class="fab fa-snapchat" aria-hidden="true"></i>
-      <span>SNAPCHAT</span>
-    </a>
+      <h3 class="subhead">Education</h3>
+      <ol class="timeline">
+        <li>
+          <span class="when">2009</span>
+          <div class="what">
+            <p class="org">University of North Carolina at Chapel Hill</p>
+            <p class="role">M.S. in Biostatistics, and PhD coursework in Biostatistics</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2007</span>
+          <div class="what">
+            <p class="org">Peking University</p>
+            <p class="role">B.S. in Probability and Statistics</p>
+          </div>
+        </li>
+      </ol>
+    </section>
 
-    <!-- Instagram -->
-    <a href="https://instagram.com/maxxhe" target="_blank" rel="noopener noreferrer" class="card link-card instagram"
-      data-bg-color="#ffe6f2">
-      <i class="fab fa-instagram" aria-hidden="true"></i>
-      <span>INSTAGRAM</span>
-    </a>
-
-    <!-- WeChat -->
-    <a href="images/wechat_qr.jpg" target="_blank" rel="noopener noreferrer" class="card link-card wechat"
-      data-bg-color="#e6ffe6">
-      <i class="fab fa-weixin" aria-hidden="true"></i>
-      <span>WECHAT</span>
-    </a>
-
-    <!-- Google Scholar -->
-    <a href="https://go.maxhe.org/gs" target="_blank" rel="noopener noreferrer" class="card link-card scholar"
-      data-bg-color="#e6f0ff">
-      <i class="fas fa-graduation-cap" aria-hidden="true"></i>
-      <span>SCHOLAR</span>
-    </a>
-
-    <!-- ResearchGate -->
-    <a href="https://www.researchgate.net/profile/Max-He" target="_blank" rel="noopener noreferrer"
-      class="card link-card researchgate" data-bg-color="#e6fffa">
-      <i class="fab fa-researchgate" aria-hidden="true"></i>
-      <span>RESEARCHGATE</span>
-    </a>
-
-    <!-- nbforge -->
-    <a href="https://nbforge.com" target="_blank" rel="noopener noreferrer" class="card link-card nbforge"
-      data-bg-color="#fff0e6">
-      <i class="fas fa-hammer" aria-hidden="true"></i>
-      <span>NBFORGE</span>
-    </a>
-
-    <footer>
-      &copy; 2025 MAX HE. ALL RIGHTS RESERVED.
-    </footer>
+    <section id="elsewhere" class="section" aria-labelledby="elsewhere-title">
+      <div class="section-head"><span class="num">03</span><h2 id="elsewhere-title">Elsewhere</h2></div>
+      <ul class="links">
+        <li><a href="https://linkedin.com/in/maxhe" target="_blank" rel="noopener noreferrer"><span class="name">LinkedIn</span><span class="handle">in/maxhe</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+        <li><a href="https://github.com/lukewarm" target="_blank" rel="noopener noreferrer"><span class="name">GitHub</span><span class="handle">lukewarm</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+        <li><a href="https://go.maxhe.org/gs" target="_blank" rel="noopener noreferrer"><span class="name">Google Scholar</span><span class="handle">publications</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+        <li><a href="https://www.researchgate.net/profile/Max-He" target="_blank" rel="noopener noreferrer"><span class="name">ResearchGate</span><span class="handle">Max-He</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+        <li><a href="https://instagram.com/maxxhe" target="_blank" rel="noopener noreferrer"><span class="name">Instagram</span><span class="handle">@maxxhe</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+        <li><a href="https://snapchat.com/add/maxxhe" target="_blank" rel="noopener noreferrer"><span class="name">Snapchat</span><span class="handle">maxxhe</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+        <li><a href="/images/wechat_qr.jpg" data-open-wechat><span class="name">WeChat</span><span class="handle">QR code</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+      </ul>
+    </section>
   </main>
 
-  <script>
-    const body = document.body;
-    const cards = document.querySelectorAll('.card');
+  <footer class="foot wrap">
+    <span>© <span data-year>2026</span> Max He</span>
+    <span>No cookies, no trackers.</span>
+    <a href="https://github.com/lukewarm/lukewarm.github.io" target="_blank" rel="noopener noreferrer">Page source ↗</a>
+  </footer>
 
-    // Desktop Hover
-    cards.forEach(card => {
-      card.addEventListener('mouseenter', () => {
-        if (window.innerWidth >= 600) {
-          const color = card.getAttribute('data-bg-color');
-          if (color) body.style.backgroundColor = color;
-        }
-      });
-      card.addEventListener('mouseleave', () => {
-        if (window.innerWidth >= 600) {
-          body.style.backgroundColor = '#f0f0f0'; // Reset to default
-        }
-      });
-    });
+  <dialog id="wechat" aria-labelledby="wechat-title">
+    <h2 id="wechat-title" class="visually-hidden">WeChat</h2>
+    <img src="/images/wechat_qr.jpg" alt="WeChat QR code for Max He" width="548" height="549" loading="lazy">
+    <p>Scan with WeChat to connect.</p>
+    <form method="dialog"><button type="submit">Close</button></form>
+  </dialog>
 
-    // Mobile Scroll (Intersection Observer)
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -20% 0px', // Trigger when element is in the middle 60% of viewport
-      threshold: 0.4
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      if (window.innerWidth < 600) {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const color = entry.target.getAttribute('data-bg-color');
-            if (color) body.style.backgroundColor = color;
-          }
-        });
-      }
-    }, observerOptions);
-
-    cards.forEach(card => observer.observe(card));
-
-    // Handle Resize to reset/check state
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 600) {
-        body.style.backgroundColor = '#f0f0f0';
-      }
-    });
-  </script>
-
+  <script src="/assets/site.js" defer></script>
 </body>
-
 </html>
