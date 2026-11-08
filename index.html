@@ -98,6 +98,10 @@
           <span class="fig-actions">
             <span class="hearts" data-game-hearts hidden></span>
             <span class="score" data-game-score hidden></span>
+            <button class="icon-button" type="button" data-game-pause aria-pressed="false" aria-label="Pause" title="Pause">
+              <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1.2"/><rect x="14" y="4" width="5" height="16" rx="1.2"/></svg>
+              <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8v14.4a1 1 0 0 0 1.53.85l11.4-7.2a1 1 0 0 0 0-1.7L8.53 3.95A1 1 0 0 0 7 4.8Z"/></svg>
+            </button>
             <button class="replay" type="button" data-game-start>Play 6 levels</button>
           </span>
         </div>
@@ -107,7 +111,7 @@
           <div class="card" data-game-card hidden></div>
         </div>
         <div data-game-stats></div>
-        <div class="console" data-game-console></div>
+        <div class="console" data-game-console tabindex="-1"></div>
         <figcaption id="fig-caption" data-game-caption>
           Make your call at the early look, then watch the full test settle it. Telling real lifts from lucky streaks is my day job.
         </figcaption>

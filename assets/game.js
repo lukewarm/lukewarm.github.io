@@ -387,7 +387,7 @@
   //   mount(container), refresh(phase)       its numbers under the stage
   //   update(dt, phase)                      advance; return "ask" (or "done" after a call) when ready
   //   draw(ctx, w, h, colors)
-  //   status(), askLabel(), question()
+  //   status(), askLabel(), question(), summary() (what the canvas shows, in words)
   //   call(choice, auto)                     true if the test runs on after the call (level 1 only)
   //   result()                               {correct, title, message, detail, note}
   //   skipToAsk(), skipToEnd()               the same, without motion
@@ -515,6 +515,9 @@
       },
       runningLabel: function () {
         return (auto ? "Called for you: " : "Your call: ") + LABELS[choice];
+      },
+      summary: function () {
+        return "";
       },
       skipToAsk: function () {
         fillTo(EARLY);
@@ -669,6 +672,14 @@
         choice = key;
         return false;
       },
+      summary: function () {
+        var k = batches(), lit = [];
+        for (var m = 0; m < METRICS.length; m += 1) {
+          var r = at(m, k);
+          if (r && r.p < 0.05) lit.push(METRICS[m] + " " + pct(r.lift, 1));
+        }
+        return lit.length ? "Significant: " + lit.join(", ") + "." : "No metric is significant.";
+      },
       skipToAsk: function () {
         s.n = USERS;
         done = true;
@@ -798,7 +809,7 @@
         stream.draw(ctx, w, h, colors);
       },
       askLabel: function () {
-        return "Full test · " + fmtInt(s.nc + s.nt) + " users";
+        return "Full test · " + fmtInt(s.nc + s.nt) + " users · planned 50 : 50";
       },
       question: function () {
         return "Treatment is up " + pctAbs(final.lift, 1) + ", and it's significant. Ship it?";
@@ -806,6 +817,9 @@
       call: function (key) {
         choice = key;
         return false;
+      },
+      summary: function () {
+        return "Planned 50 : 50. Logged: " + fmtInt(s.nc) + " control users and " + fmtInt(s.nt) + " treatment users.";
       },
       skipToAsk: function () {
         while (s.n < USERS) apply(s.n);
@@ -1009,7 +1023,7 @@
         ctx.lineTo(w - 10, top + SEGMENTS.length * rowH);
         ctx.stroke();
         [-0.3, -0.15, 0, 0.15, 0.3].forEach(function (v) {
-          drawText(ctx, v === 0 ? "0" : pct(v, 0), X(v), h - 10, 9, 400, colors.faint, "center");
+          drawText(ctx, v === 0 ? "0" : pct(v, 0), X(v), h - 10, 9, 400, colors.muted, "center");
         });
         for (var r = 0; r < rows; r += 1) {
           var overall = r === SEGMENTS.length, y = top + (r + 0.5) * rowH;
@@ -1018,7 +1032,7 @@
             drawText(ctx, "Overall", 10, y, 10, 600, colors.ink);
           } else {
             drawText(ctx, SEGMENTS[r].name, 10, y - 6, 10, 500, colors.ink);
-            drawText(ctx, Math.round(SEGMENTS[r].share * 100) + "% of users", 10, y + 7, 8.5, 400, colors.faint);
+            drawText(ctx, Math.round(SEGMENTS[r].share * 100) + "% of users", 10, y + 7, 9, 400, colors.muted);
           }
           if (!stats) continue;
           var kind = verdictOf(stats);
@@ -1051,6 +1065,12 @@
       call: function (key) {
         choice = key;
         return false;
+      },
+      summary: function () {
+        return SEGMENTS.map(function (g, k) {
+          var r = rates(s.groups[k]);
+          return g.name + " users " + (r ? pct(r.lift, 0) + " " + interval(r, 0) + ", " + pEquals(r.p) : "not in yet");
+        }).join("; ") + ".";
       },
       skipToAsk: function () {
         while (s.n < USERS) apply(s.n);
@@ -1201,11 +1221,11 @@
           ctx.moveTo(x, 8);
           ctx.lineTo(x, axisY - 10);
           ctx.stroke();
-          drawText(ctx, text, x, axisY, 9, 400, colors.faint, "center");
+          drawText(ctx, text, x, axisY, 9, 400, colors.muted, "center");
         });
         drawText(ctx, "Control", 10, lanes[0], 9.5, 600, colors.control);
         drawText(ctx, "Treatment", 10, lanes[1], 9.5, 600, colors.treatment);
-        drawText(ctx, "Order size", 10, axisY, 8.5, 400, colors.faint);
+        drawText(ctx, "Order size", 10, axisY, 9, 400, colors.muted);
         var big = [];
         [0, 1].forEach(function (g) {
           ctx.fillStyle = g ? colors.treatment : colors.control;
@@ -1253,6 +1273,12 @@
       call: function (key) {
         choice = key;
         return false;
+      },
+      summary: function () {
+        if (!s.shown) return "No orders yet.";
+        var top = purchases[0];
+        for (var k = 1; k < s.shown; k += 1) if (purchases[k].amount > top.amount) top = purchases[k];
+        return "Most orders are $10 to $100. The biggest, " + dollars(top.amount) + ", is in " + (top.arm ? "treatment." : "control.");
       },
       skipToAsk: function () {
         while (s.n < USERS) apply(s.n);
@@ -1388,9 +1414,9 @@
           }
         });
         for (var b = 0; b < BINS; b += 1) {
-          drawText(ctx, b === BINS - 1 ? "10+" : String(b), x0 + (b + 0.5) * binW, bases[1] + 11, 9, 400, colors.faint, "center");
+          drawText(ctx, b === BINS - 1 ? "10+" : String(b), x0 + (b + 0.5) * binW, bases[1] + 11, 9, 400, colors.muted, "center");
         }
-        drawText(ctx, "Clicks/user", 10, bases[1] + 11, 8.5, 400, colors.faint);
+        drawText(ctx, "Clicks/user", 10, bases[1] + 11, 9, 400, colors.muted);
       },
       askLabel: function () {
         return "Full test · " + fmtInt(USERS) + " users";
@@ -1401,6 +1427,15 @@
       call: function (key) {
         choice = key;
         return false;
+      },
+      summary: function () {
+        return s.groups.map(function (g, k) {
+          var shares = [];
+          g.hist.forEach(function (count, b) {
+            if (g.n && count >= 0.01 * g.n) shares.push(Math.round(100 * count / g.n) + "% with " + (b === BINS - 1 ? "10 or more" : b));
+          });
+          return (k ? "Treatment" : "Control") + " clicks per user: " + (shares.join(", ") || "not in yet");
+        }).join(". ") + ".";
       },
       skipToAsk: function () {
         while (s.n < USERS) apply(s.n);
@@ -1433,7 +1468,6 @@
   var BONUS = 50, BONUS_SECONDS = 10;  // a speed bonus that runs out after BONUS_SECONDS
   var DEMO_ASK = 8;                    // seconds before the demo calls the early leader
   var DEMO_HOLD = 10;                  // seconds a demo result stays up
-  var INTRO = 2.6;                     // seconds of a level's title card
   var CAPTIONS = {
     demo: "Make your call at the early look, then watch the full test settle it. Telling real lifts from lucky streaks is my day job.",
     game: "Six classic ways an experiment can fool you. Telling real lifts from lucky streaks is my day job."
@@ -1441,7 +1475,7 @@
   var RANKS = [[6, "p-value whisperer"], [5, "Staff-level skeptic"], [4, "Cautious analyst"]];
 
   var dom = {};
-  ["label", "title", "hearts", "score", "start", "labels", "card", "stats", "console", "caption", "live"].forEach(function (name) {
+  ["label", "title", "hearts", "score", "pause", "start", "labels", "card", "stats", "console", "caption", "live"].forEach(function (name) {
     dom[name] = root.querySelector("[data-game-" + name + "]");
   });
   var canvas = root.querySelector("canvas");
@@ -1455,73 +1489,92 @@
     hearts: HEARTS, score: 0, streak: 0, results: [], choice: null, bonus: 0
   };
   var colors = {}, width = 0, height = 0;
-  var running = false, onScreen = true, frameId = 0, lastTime = 0, lastRefresh = 0;
+  var running = false, paused = false, onScreen = true, frameId = 0, lastTime = 0, lastRefresh = 0;
   var live = {};  // console parts that change every frame
 
   // ------------------------------------------------------------ level flow
+  //
+  // Each step below notes whether keyboard focus was on the card or the console, whose controls it
+  // is about to replace, and if so puts focus on whatever comes next.
 
   function startLevel(index) {
+    var hadFocus = controlsHaveFocus();
     game.index = index;
     game.level = LEVELS[index](mulberry32(freshSeed()));
     game.choice = null;
     dom.labels.innerHTML = game.level.labels;
-    canvas.setAttribute("aria-label", game.level.description);
     dom.stats.innerHTML = "";
     game.level.mount(dom.stats);
     root.dataset.level = game.level.key;
     delete root.dataset.correct;
-    renderHeader();
-    if (game.mode === "game" && !reduceMotion.matches) {
+    if (game.mode === "game") {  // a title card, up until the player starts the level
       setPhase("intro");
       showIntro();
       game.level.refresh("intro");
+      renderHeader();
       renderConsole();
+      describeCanvas();
       draw();
+      announce("Level " + (game.index + 1) + " of " + LEVELS.length + ", " + game.level.title + ". " + game.level.intro);
     } else {
       beginPlay();
     }
+    if (hadFocus) placeFocus();
   }
 
   function beginPlay() {
+    var hadFocus = controlsHaveFocus();
     dom.card.hidden = true;
     if (reduceMotion.matches) {
       game.level.skipToAsk();
       ask();
-      return;
+    } else {
+      setPhase("play");
+      game.level.refresh("play");
+      renderConsole();
+      describeCanvas();
+      ensureRunning();
     }
-    setPhase("play");
-    game.level.refresh("play");
-    renderConsole();
+    renderHeader();
+    if (hadFocus) placeFocus();
   }
 
   function ask() {
+    var hadFocus = controlsHaveFocus();
     setPhase("ask");
     game.level.refresh("ask");
     draw();
     renderConsole();
-    announce(game.level.askLabel() + ". " + game.level.question());
+    describeCanvas();
+    announce(game.level.askLabel() + ". " + game.level.question() + " " + game.level.summary());
+    if (hadFocus) placeFocus();
   }
 
   function makeCall(choice, auto) {
     if (game.phase !== "ask") return;
-    if (game.mode === "demo" && !auto) enterGame();
+    var hadFocus = controlsHaveFocus();
+    if (!auto) {
+      if (game.mode === "demo") enterGame();
+      setPaused(false);
+    }
     game.choice = choice;
     game.bonus = game.mode === "game" && !reduceMotion.matches ? Math.round(bonusLeft()) : 0;
     if (!game.level.call(choice, auto)) {
       reveal();
-      return;
-    }
-    if (reduceMotion.matches) {
+    } else if (reduceMotion.matches) {
       game.level.skipToEnd();
       reveal();
-      return;
+    } else {
+      setPhase("continue");
+      game.level.refresh("continue");
+      renderConsole();
     }
-    setPhase("continue");
-    game.level.refresh("continue");
-    renderConsole();
+    ensureRunning();
+    if (hadFocus) placeFocus();
   }
 
   function reveal() {
+    var hadFocus = controlsHaveFocus();
     var result = game.level.result(), scored = null;
     if (game.mode === "game") {
       game.results.push(result.correct);
@@ -1541,17 +1594,15 @@
     draw();
     renderHeader();
     renderConsole(result, scored);
-    var verdict = game.mode === "game" ? (result.correct ? "Right. " : "Wrong. ") : "The full test says: ";
-    announce(verdict + result.title + ". " + result.message + " " + (result.note || ""));
+    describeCanvas();
+    announce((result.correct ? "Right. " : "Wrong. ") + result.title + ". " + result.message + " " + (result.note || ""));
+    if (hadFocus) placeFocus();
   }
 
   function next() {
-    if (game.hearts <= 0 || game.index + 1 >= LEVELS.length) {
-      finishGame();
-      return;
-    }
-    startLevel(game.index + 1);
-    ensureRunning();
+    setPaused(false);
+    bringIntoView();
+    if (game.hearts <= 0 || game.index + 1 >= LEVELS.length) finishGame(); else startLevel(game.index + 1);
   }
 
   function enterGame() {
@@ -1567,9 +1618,10 @@
 
   function startGame() {
     stop();
+    setPaused(false);
     enterGame();
+    bringIntoView();
     startLevel(0);
-    ensureRunning();
   }
 
   function startDemo() {
@@ -1600,6 +1652,7 @@
   }
 
   function finishGame() {
+    var hadFocus = controlsHaveFocus();
     stop();
     setPhase("final");
     var right = game.results.filter(Boolean).length, finished = game.hearts > 0;
@@ -1616,14 +1669,13 @@
     dom.card.appendChild(make("span", "card-label", finished ? "Lucky Streak · all " + LEVELS.length + " levels"
       : "Out of hearts on level " + (game.index + 1)));
     dom.card.appendChild(make("span", "card-title", rank));
-    dom.card.appendChild(make("span", "card-squares", squares));
+    dom.card.appendChild(make("span", "card-squares", squares)).setAttribute("aria-hidden", "true");
     dom.card.appendChild(make("span", "card-text", right + " of " + game.results.length + " right · " + fmtInt(game.score) + " points"));
     dom.card.appendChild(make("span", "card-note", newBest ? "A new personal best." : "Your best: " + fmtInt(best) + " points."));
     dom.card.hidden = false;
 
     var shareText = "Lucky Streak " + right + "/" + LEVELS.length + " " + squares + " " + fmtInt(game.score) + " points ("
       + rank + ")\nhttps://maxhe.org/#play";
-    var focused = dom.console.contains(document.activeElement);
     dom.console.innerHTML = "";
     live = {};
     dom.console.appendChild(make("p", "console-label", "Game over"));
@@ -1635,7 +1687,12 @@
       if (navigator.share && coarsePointer.matches) {
         navigator.share({ text: shareText }).catch(function () {});
       } else if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(shareText).then(function () { share.textContent = "Copied"; }, function () {});
+        navigator.clipboard.writeText(shareText).then(function () {
+          share.textContent = "Copied";
+          announce("Your result is copied.");
+        }, function () {
+          share.textContent = "Couldn't copy";
+        });
       }
     });
     var again = make("button", "choice", "Play again");
@@ -1644,9 +1701,9 @@
     actions.appendChild(share);
     actions.appendChild(again);
     dom.console.appendChild(actions);
-    if (focused) share.focus();
     renderHeader();
     announce("Game over. " + rank + ": " + right + " of " + game.results.length + " right, " + game.score + " points.");
+    if (hadFocus) placeFocus();
   }
 
   // ------------------------------------------------------------- rendering
@@ -1657,14 +1714,21 @@
     root.dataset.phase = phase;
   }
 
+  // Short text on screen, and the words for screen readers.
+  function setLabel(node, shown, spoken) {
+    node.innerHTML = "";
+    node.appendChild(make("span", "", shown)).setAttribute("aria-hidden", "true");
+    node.appendChild(make("span", "visually-hidden", spoken));
+  }
+
   function renderHeader() {
     var playing = game.mode === "game", hearts = Math.max(0, game.hearts), over = game.phase === "final";
     dom.label.textContent = over ? "Lucky Streak" : playing ? "Level " + (game.index + 1) + "/" + LEVELS.length : "Fig. 1";
     dom.title.textContent = over ? "Game over" : game.level ? game.level.title : "";
     dom.hearts.hidden = dom.score.hidden = !playing;
-    dom.hearts.textContent = "♥".repeat(hearts) + "♡".repeat(HEARTS - hearts);
-    dom.hearts.setAttribute("aria-label", hearts + (hearts === 1 ? " heart" : " hearts") + " left");
-    dom.score.textContent = fmtInt(game.score) + " pts";
+    setLabel(dom.hearts, "♥".repeat(hearts) + "♡".repeat(HEARTS - hearts), hearts + (hearts === 1 ? " heart" : " hearts") + " left");
+    setLabel(dom.score, fmtInt(game.score) + " pts", "Score " + fmtInt(game.score));
+    dom.pause.hidden = reduceMotion.matches || over;
     dom.start.textContent = playing ? "Restart" : "Play " + LEVELS.length + " levels";
   }
 
@@ -1673,7 +1737,20 @@
     dom.card.appendChild(make("span", "card-label", "Level " + (game.index + 1) + " of " + LEVELS.length));
     dom.card.appendChild(make("span", "card-title", game.level.title));
     dom.card.appendChild(make("span", "card-text", game.level.intro));
+    var start = make("button", "choice primary", "Start");
+    start.type = "button";
+    start.addEventListener("click", function () {
+      setPaused(false);
+      beginPlay();
+    });
+    dom.card.appendChild(start);
     dom.card.hidden = false;
+  }
+
+  // The canvas's text alternative: what it shows and, once the data is in, what it says.
+  function describeCanvas() {
+    var summary = game.phase === "ask" || game.phase === "reveal" ? game.level.summary() : "";
+    canvas.setAttribute("aria-label", game.level.description + (summary ? " " + summary : ""));
   }
 
   function statusText() {
@@ -1684,23 +1761,23 @@
   }
 
   function renderConsole(result, scored) {
-    var focused = dom.console.contains(document.activeElement);
     dom.console.innerHTML = "";
     live = {};
     if (game.phase === "reveal") renderResult(result, scored); else renderQuestion();
-    if (focused) {
-      var first = dom.console.querySelector("button:not([disabled])");
-      if (first) first.focus();
-    }
   }
 
   function renderQuestion() {
-    var level = game.level, asking = game.phase === "ask";
+    var level = game.level, phase = game.phase, asking = phase === "ask";
     var label = make("p", "console-label", asking ? level.askLabel() : statusText());
     if (!asking) live.status = label;
     dom.console.appendChild(label);
-    var question = asking ? level.question() : game.phase === "continue" ? "Running the full test…" : level.prompt;
-    dom.console.appendChild(make("p", "console-question" + (asking ? "" : " waiting"), question));
+    if (asking) {
+      dom.console.appendChild(make("p", "console-question", level.question()));
+    } else if (phase === "play" && game.mode === "game") {
+      dom.console.appendChild(make("p", "console-brief", level.intro));  // the instructions, while the test runs
+    } else {
+      dom.console.appendChild(make("p", "console-question waiting", phase === "continue" ? "Running the full test…" : level.prompt));
+    }
     var choices = make("div", "choices");
     level.choices.forEach(function (choice) {
       var button = make("button", "choice", choice.label);
@@ -1708,7 +1785,7 @@
       button.dataset.choice = choice.key;
       button.dataset.tone = choice.tone;
       button.disabled = !asking;
-      if (game.phase === "continue" && choice.key === game.choice) button.setAttribute("aria-pressed", "true");
+      if (phase === "continue" && choice.key === game.choice) button.setAttribute("aria-pressed", "true");
       button.addEventListener("click", function () { makeCall(choice.key, false); });
       choices.appendChild(button);
     });
@@ -1775,7 +1852,32 @@
   }
 
   function announce(text) {
-    dom.live.textContent = text;
+    if (game.mode === "game") dom.live.textContent = text;  // the demo loops, so it stays quiet
+  }
+
+  function controlsHaveFocus() {
+    var active = document.activeElement;
+    return !!active && (dom.console.contains(active) || dom.card.contains(active));
+  }
+
+  // Focus for the phase: the title card's Start, the first live button, or the console itself.
+  function placeFocus() {
+    var target = game.phase === "intro" ? dom.card.querySelector("button")
+      : dom.console.querySelector("button:not([disabled])") || dom.console;
+    target.focus({ preventScroll: true });
+  }
+
+  // After a click near the bottom of the figure (on a phone, say), scroll its top back into view.
+  function bringIntoView() {
+    if (root.getBoundingClientRect().top < 0) {
+      root.scrollIntoView({ block: "start", behavior: reduceMotion.matches ? "auto" : "smooth" });
+    }
+  }
+
+  function setPaused(value) {
+    paused = value;
+    dom.pause.setAttribute("aria-pressed", String(value));
+    dom.pause.title = value ? "Resume" : "Pause";
   }
 
   // ------------------------------------------------------------------ loop
@@ -1783,9 +1885,7 @@
   function step(dt, now) {
     game.phaseTime += dt;
     var phase = game.phase;
-    if (phase === "intro") {
-      if (game.phaseTime > INTRO) beginPlay();
-    } else if (phase === "play" || phase === "ask" || phase === "continue" || phase === "reveal") {
+    if (phase === "play" || phase === "ask" || phase === "continue" || phase === "reveal") {
       var signal = game.level.update(dt, phase);
       if (phase === "play" && signal === "ask") ask();
       else if (phase === "continue" && signal === "done") reveal();
@@ -1820,7 +1920,8 @@
   }
 
   function ensureRunning() {
-    if (running || reduceMotion.matches || !onScreen || document.hidden || game.phase === "final") return;
+    if (running || paused || reduceMotion.matches || !onScreen || document.hidden) return;
+    if (game.phase === "intro" || game.phase === "final") return;  // nothing moves until the player acts
     running = true;
     lastTime = performance.now();
     frameId = requestAnimationFrame(tick);
@@ -1851,7 +1952,14 @@
 
   // ---------------------------------------------------------------- wiring
 
-  dom.start.addEventListener("click", startGame);
+  dom.start.addEventListener("click", function () {
+    startGame();
+    placeFocus();
+  });
+  dom.pause.addEventListener("click", function () {
+    setPaused(!paused);
+    if (paused) stop(); else ensureRunning();
+  });
   readColors();
   resize();
   if (window.ResizeObserver) {
@@ -1874,6 +1982,7 @@
   });
   if (reduceMotion.addEventListener) {
     reduceMotion.addEventListener("change", function () {
+      renderHeader();
       if (game.mode === "demo") startDemo();
     });
   }
