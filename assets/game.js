@@ -1940,7 +1940,12 @@
     });
   }
 
+  // Sizes the canvas to the stage, once the stylesheet is in. On a slow first load Safari can run
+  // this script before then, and a canvas sized to an unstyled stage grows every time it is sized
+  // (the stage takes the canvas's height), until Safari gives up on it.
   function resize() {
+    readColors();
+    if (!colors.ink) return;
     var ratio = Math.min(window.devicePixelRatio || 1, 2);
     width = stage.clientWidth;
     height = stage.clientHeight;
@@ -1960,7 +1965,6 @@
     setPaused(!paused);
     if (paused) stop(); else ensureRunning();
   });
-  readColors();
   resize();
   if (window.ResizeObserver) {
     new ResizeObserver(resize).observe(stage);
@@ -1989,6 +1993,7 @@
   window.addEventListener("hashchange", function () {
     if (window.location.hash === "#play") startGame();
   });
+  window.addEventListener("load", resize);  // every stylesheet is in by now
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
   if (window.location.hash === "#play") startGame(); else startDemo();
 })();
