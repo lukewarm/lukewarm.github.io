@@ -1029,6 +1029,7 @@ dialog button {
 .hearts[hidden],
 .score[hidden],
 .icon-button[hidden],
+.replay[hidden],
 .card[hidden] {
   display: none;
 }

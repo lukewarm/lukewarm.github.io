@@ -1730,6 +1730,7 @@
     setLabel(dom.score, fmtInt(game.score) + " pts", "Score " + fmtInt(game.score));
     dom.pause.hidden = reduceMotion.matches || over;
     dom.start.textContent = playing ? "Restart" : "Play " + LEVELS.length + " levels";
+    dom.start.hidden = false;  // hidden in the page until this script runs
   }
 
   function showIntro() {

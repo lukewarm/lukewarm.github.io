@@ -1,0 +1,34 @@
+# Max He
+
+> Data scientist and programmer at Microsoft AI. Statistician by training, working on experimentation (A/B testing), causal inference, and the tools that make them easy to do well. Previously at Google Search, Snap, Meta and Duke Clinical Research Institute.
+
+Homepage: https://maxhe.org/. GitHub: lukewarm.
+
+## Projects
+
+- [breakitdown](https://github.com/lukewarm/breakitdown): A/B tests on Spark, sliced by any user or metric segment. Count, binary, ratio and quantile metrics with delta-method intervals, computed on the tables you already have. Python and PySpark, Apache-2.0, on [PyPI](https://pypi.org/project/breakitdown/).
+- [nbforge](https://nbforge.com): a data science and analytics platform that turns Jupyter notebooks into web apps and pipeline tasks. Add a parameters cell and a notebook gets a form, an API endpoint and a run history. Open source ([GitHub](https://github.com/lukewarm/nbforge)), with a [live demo](https://demo.nbforge.com).
+
+## Experience
+
+- Microsoft AI (now): data science.
+- Google Search (2025): Senior Data Science Manager. Search quality, trust and safety, and growth and experimentation for Core Search, including its generative AI features.
+- Snap (2017–2025): Staff Data Scientist, then Data Science Manager and Senior Data Science Manager. Experimentation and causal inference: A/B testing methods and the A/B platform, ad ranking and ad experimentation, and an internal notebook platform for reporting and causal inference.
+- Meta (2016–2017): Data Scientist, Infrastructure Strategy. Capacity planning, peak-usage forecasting and media playback performance.
+- Duke Clinical Research Institute (2010–2016): Statistician. Bayesian hierarchical models, risk prediction and causal inference on clinical registry data.
+
+## Education
+
+- University of North Carolina at Chapel Hill (2009): M.S. in Biostatistics, and PhD coursework in Biostatistics.
+- Peking University (2007): B.S. in Probability and Statistics.
+
+## Profiles
+
+- [LinkedIn](https://www.linkedin.com/in/maxhe/)
+- [GitHub](https://github.com/lukewarm)
+- [Google Scholar](https://scholar.google.com/citations?user=_ZgzMYUAAAAJ)
+- [ResearchGate](https://www.researchgate.net/profile/Max-He)
+
+## Optional
+
+- [Lucky Streak](https://maxhe.org/#play): a six-level browser game on the homepage about the ways an A/B test can fool you: calling a test early (peeking), one lucky metric out of twenty (multiple testing), a broken 50:50 split (sample ratio mismatch), a flat average hiding segments that moved (heterogeneous treatment effects), one big spender (outliers), and a result too good to be true (Twyman's law).
